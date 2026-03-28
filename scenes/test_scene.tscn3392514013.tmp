@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bnjohlrkoulqu"]
+
+[ext_resource type="PackedScene" uid="uid://4gkowrcmo0p7" path="res://models/keyboard.fbx" id="1_g7g4h"]
+[ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/keyboard.gd" id="2_j8ivh"]
+
+[sub_resource type="Environment" id="Environment_g7g4h"]
+background_mode = 1
+background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+
+[node name="TestScene" type="Node3D" unique_id=818513904]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=971594263]
+environment = SubResource("Environment_g7g4h")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=601029755]
+transform = Transform3D(1, 0, 0, 0, 0.8778744, 0.47889104, 0, -0.47889104, 0.8778744, 0, 0.4355364, 0.45036632)
+light_color = Color(0.89411765, 0.99215686, 0.84313726, 1)
+spot_range = 0.95245
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=306765377]
+transform = Transform3D(1, 0, 0, 0, 0.9893156, 0.1457895, 0, -0.1457895, 0.9893156, 0.001909256, 0.35789853, 0.64548475)
+current = true
+fov = 38.880722
+
+[node name="keyboard" parent="." unique_id=978738681 instance=ExtResource("1_g7g4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0093277395, 0.013024956, -0.12324965)
+script = ExtResource("2_j8ivh")
