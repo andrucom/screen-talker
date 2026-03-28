@@ -14,22 +14,28 @@ func _process(delta: float) -> void:
 #--------------------#
 # Функции для самого процесса нажатия и отжатия 
 func push_button(node: String):
-	var body = get_node(node)
-	body.position -= Vector3(0,0.01,0)
+	if get_node(node) != null:
+		var body = get_node(node)
+		body.position -= Vector3(0,0.01,0)
 
+
+	
 func unpush_button(node: String):
-	var body = get_node(node)
-	body.position += Vector3(0,0.01,0)
+	if get_node(node) != null:
+		var body = get_node(node)
+		body.position += Vector3(0,0.01,0)
 
+		
 # Нажатие и отжатие кнопок на клавиатуре. !На 3д модели должны совпадать keycode с названием мешей
 func _input(event: InputEvent) -> void:
-		if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
-			push_button(OS.get_keycode_string(event.keycode).to_lower())
-			pressed_handled[event.keycode] = true
-			
-		if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
-			unpush_button(OS.get_keycode_string(event.keycode).to_lower())
-			pressed_handled[event.keycode] = false
+	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
+		push_button(OS.get_keycode_string(event.keycode).to_lower())
+		pressed_handled[event.keycode] = true
+		
+	if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
+		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
+		pressed_handled[event.keycode] = false
+
 
 		#if event is InputEventKey:
 			#if event.keycode == KEY_W and event.pres:
