@@ -17,14 +17,12 @@ func push_button(node: String):
 	if get_node(node) != null:
 		var body = get_node(node)
 		body.position -= Vector3(0,0.01,0)
-
-
 	
 func unpush_button(node: String):
 	if get_node(node) != null:
 		var body = get_node(node)
 		body.position += Vector3(0,0.01,0)
-
+		
 		
 # Нажатие и отжатие кнопок на клавиатуре. !На 3д модели должны совпадать keycode с названием мешей
 func _input(event: InputEvent) -> void:
