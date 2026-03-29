@@ -33,6 +33,21 @@ func _input(event: InputEvent) -> void:
 
 		input_rotation_x = lerp(input_rotation_x, target_x, 0.7)
 		input_rotation_y = lerp(input_rotation_y, target_y, 1.0)
+		
+		# Это фикс для Linux Wayland.
+		# https://github.com/godotengine/godot/issues/80008
+		# На данный момент, в версии 4.6.1 присутствует баг, при котором
+		# Input.MOUSE_MODE_CAPTURED не ограничивает положение курсора
+		# внутри окна, из-за чего приходится вручную это делать, что бы
+		# курсор не "выпрыгивал" из окна.
+		# Да-да, platform-specific фиксы так рано в рамках разработки.
+		# ---
+		# Есть, правда, проблема - это фикс для Linux в целом.
+		# При вызове DisplayServer.get_name() - у меня выдаёт X11,
+		# хотя я точно уверен, что у меня используется Wayland...
+		# Надо будет это дополнительно проверить.
+		if OS.get_name() == "Linux":
+			Input.warp_mouse(-mouse_delta)
 
 # Дрожание камеры
 func shake(delta):
