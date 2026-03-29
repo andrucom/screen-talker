@@ -23,5 +23,5 @@ current = true
 fov = 38.880722
 
 [node name="keyboard" parent="." unique_id=978738681 instance=ExtResource("1_g7g4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0093277395, 0.013024956, -0.12324965)
+transform = Transform3D(1, 0, 0, 0, 0.89562637, -0.4448071, 0, 0.4448071, 0.89562637, -0.0093277395, 0.07104316, -0.12324965)
 script = ExtResource("2_j8ivh")
