@@ -2,58 +2,46 @@ extends Camera3D
 
 @onready var camera := self
 
-
 var time = 0
 var power = 0.005
-var original_rotation_x = 0.0
-var original_rotation_y = 0.0
+var input_rotation_x = 0.0  
+var input_rotation_y = 0.0  
+var shake_offset_x = 0.0
+var shake_offset_y = 0.0
 
-var target_rot_x = 0
-var target_rot_y = 0
-
-var mouse_sensitivity = 0.01  # Чувствительность (чем меньше, тем плавнее)
+var mouse_sensitivity = 0.01
 
 func _ready() -> void:
-	original_rotation_x = camera.rotation.x
-	original_rotation_y = camera.rotation.y
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	input_rotation_x = camera.rotation.x
+	input_rotation_y = camera.rotation.y
 
-
-
+#Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		# Получаем движение мыши
 		var mouse_delta = event.screen_relative
-
-		# Нормализуем движение относительно размера экрана
 		var viewport_size = get_viewport().get_visible_rect().size
 		var normalized_x = -mouse_delta.x / viewport_size.x
 		var normalized_y = -mouse_delta.y / viewport_size.y
 
-		# Рассчитываем целевое вращение (накапливаем, а не ограничиваем)
-		target_rot_x = rotation.x + (normalized_y * mouse_sensitivity * 100)
-		target_rot_y = rotation.y + (normalized_x * mouse_sensitivity * 100)
+		# ИЗМЕНЕНО: работаем с input_rotation, а не с rotation
+		var target_x = input_rotation_x + (normalized_y * mouse_sensitivity * 100)
+		var target_y = input_rotation_y + (normalized_x * mouse_sensitivity * 100)
 
-		# Опционально: глобальные ограничения, чтобы камера не перевернулась
-		target_rot_x = clamp(target_rot_x, -3.5, 3.5)  # ~ -85 до +85 градусов
-		target_rot_y = clamp(target_rot_y, -3.14, 3.14)  # полный круг по горизонтали
+		target_x = clamp(target_x, -3.5, 3.5)
+		target_y = clamp(target_y, -3.14, 3.14)
 
-		# Плавно поворачиваем камеру
+		input_rotation_x = lerp(input_rotation_x, target_x, 0.7)
+		input_rotation_y = lerp(input_rotation_y, target_y, 1.0)
 
-		rotation.x = lerp(rotation.x, target_rot_x, 0.6)
-		rotation.y = lerp(rotation.y, target_rot_y, 0.6)
-
+# Дрожание камеры
 func shake(delta):
-	time += delta  # Увеличиваем время
-	# Мягко покачиваем камеру влево-вправо
-	# sin(time) даёт плавное изменение от -1 до 1
-	# Умножаем на 0.1, чтобы амплитуда (размах) была небольшой
-	camera.rotation.x =  original_rotation_x + sin(time) * power
-	camera.rotation.y =  original_rotation_y + sin(time) * power
+	time += delta
+	shake_offset_x = sin(time) * power
+	shake_offset_y = sin(time) * power
 
-
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	shake(delta)
-	pass
+	# Суммируем вращение от мыши и тряску
+	camera.rotation.x = input_rotation_x + shake_offset_x
+	camera.rotation.y = input_rotation_y + shake_offset_y
