@@ -3,8 +3,9 @@ extends Node3D
 
 var pressed_handled = {}
 var push_power = 0.005
-
-
+var sound = preload("res://sounds/button.mp3")
+var sound_space = preload("res://sounds/space.mp3")
+var sound_enter = preload("res://sounds/enter.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,12 +19,22 @@ func _process(delta: float) -> void:
 #--------------------#
 # Функции для самого процесса нажатия и отжатия 
 func push_button(node: String):
-	
 	if get_node(node) != null:
-		var sound = preload("res://sounds/button.mp3")
-		audio.stream = sound
-		audio.pitch_scale = randf_range(0.9,1.3)
-		audio.play()
+		if node == "space":
+			audio.stream = sound_space
+			audio.pitch_scale = randf_range(1,1.2)
+			audio.volume_db = -20
+			audio.play()
+		elif node == "enter":
+			audio.stream = sound_enter
+			audio.pitch_scale = randf_range(1,1.2)
+			audio.volume_db = -30
+			audio.play()
+		else:
+			audio.stream = sound
+			audio.pitch_scale = randf_range(0.9,1.3)
+			audio.volume_db = 0
+			audio.play()
 		
 		var body = get_node(node)
 		body.position -= Vector3(0,push_power,0)

@@ -28,8 +28,8 @@ func _input(event: InputEvent) -> void:
 		var target_x = input_rotation_x + (normalized_y * mouse_sensitivity * 100)
 		var target_y = input_rotation_y + (normalized_x * mouse_sensitivity * 100)
 
-		target_x = clamp(target_x, -3.5, 3.5)
-		target_y = clamp(target_y, -3.14, 3.14)
+		target_x = clamp(target_x, -0.5, 0.5)
+		target_y = clamp(target_y, -0.5, 0.5)
 
 		input_rotation_x = lerp(input_rotation_x, target_x, 0.7)
 		input_rotation_y = lerp(input_rotation_y, target_y, 1.0)
@@ -46,6 +46,7 @@ func _input(event: InputEvent) -> void:
 		# При вызове DisplayServer.get_name() - у меня выдаёт X11,
 		# хотя я точно уверен, что у меня используется Wayland...
 		# Надо будет это дополнительно проверить.
+		# By dadakis
 		if OS.get_name() == "Linux":
 			Input.warp_mouse(-mouse_delta)
 
