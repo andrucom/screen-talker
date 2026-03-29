@@ -47,5 +47,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21689272, 0, -0.45510328)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035221934, 0, 0.021073341)
 script = ExtResource("2_j8ivh")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08239977, 0.10863447, 0.43531585)
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="pc/keyboard" unique_id=1760812099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047177836, 0.10863447, 0.4142425)
