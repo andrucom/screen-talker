@@ -2,12 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scenes/camera.gd" id="1_7ddre"]
 [ext_resource type="PackedScene" uid="uid://bxttv2qvpftws" path="res://models/keyboard.fbx" id="1_g7g4h"]
+[ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
 [ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/keyboard.gd" id="2_j8ivh"]
+[ext_resource type="Script" uid="uid://d1nom7pk2gtir" path="res://scenes/center_node2d.gd" id="2_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://18slh83j5r2i" path="res://models/pc.fbx" id="3_nd71p"]
+[ext_resource type="Script" uid="uid://7gbmkxx444xc" path="res://models/pc.gd" id="3_qjeyg"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
 background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+glow_enabled = true
+glow_bloom = 0.6
 
 [node name="TestScene" type="Node3D" unique_id=818513904]
 
@@ -16,7 +21,6 @@ environment = SubResource("Environment_g7g4h")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=601029755]
 transform = Transform3D(0.93536997, -0.16936976, 0.31047848, 0, 0.8778744, 0.47889102, -0.35367075, -0.4479403, 0.8211373, 0.208204, 0.5464707, 0.39497292)
-light_color = Color(0.89411765, 0.99215686, 0.84313726, 1)
 light_energy = 3.554
 light_volumetric_fog_energy = 1.901
 light_size = 0.225
@@ -40,8 +44,29 @@ size = 0.735
 near = 0.001
 script = ExtResource("1_7ddre")
 
+[node name="Node2D" type="Node2D" parent="Camera3D" unique_id=176575205]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("2_wtsjf")
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/Node2D" unique_id=722891032]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_3qnke")
+
 [node name="pc" parent="." unique_id=453375844 instance=ExtResource("3_nd71p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21689272, 0, -0.45510328)
+script = ExtResource("3_qjeyg")
 
 [node name="keyboard" parent="pc" unique_id=1443286411 instance=ExtResource("1_g7g4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035221934, 0, 0.021073341)
@@ -49,3 +74,9 @@ script = ExtResource("2_j8ivh")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="pc/keyboard" unique_id=1760812099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047177836, 0.10863447, 0.4142425)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="pc" unique_id=1981783495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040375546, 0.0963842, 0.25963408)
+light_color = Color(0.9999997, 0.12005576, 0.12285831, 1)
+light_energy = 0.2
+omni_range = 0.052483894
