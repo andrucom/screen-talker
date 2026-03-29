@@ -1,6 +1,6 @@
 extends Node3D
 var pressed_handled = {}
-
+var push_power = 0.005
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,17 +16,19 @@ func _process(delta: float) -> void:
 func push_button(node: String):
 	if get_node(node) != null:
 		var body = get_node(node)
-		body.position -= Vector3(0,0.01,0)
+		body.position -= Vector3(0,push_power,0)
 	
 func unpush_button(node: String):
 	if get_node(node) != null:
 		var body = get_node(node)
-		body.position += Vector3(0,0.01,0)
+		body.position += Vector3(0,push_power,0)
 		
 		
 # Нажатие и отжатие кнопок на клавиатуре. !На 3д модели должны совпадать keycode с названием мешей
 func _input(event: InputEvent) -> void:
+	
 	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
+		print(OS.get_keycode_string(event.keycode).to_lower())
 		push_button(OS.get_keycode_string(event.keycode).to_lower())
 		pressed_handled[event.keycode] = true
 		
