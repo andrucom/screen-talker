@@ -37,7 +37,7 @@ light_specular = 0.47
 spot_range = 1.2102777
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=306765377]
-transform = Transform3D(1, 0, 0, 0, 0.9674447, 0.25308263, 0, -0.25308263, 0.9674447, -0.16799986, 0.4865734, 0.65953636)
+transform = Transform3D(1, 0, 0, 0, 0.96726775, 0.25375795, 0, -0.25375795, 0.96726775, -0.16799986, 0.4865734, 0.65953636)
 current = true
 fov = 47.337795
 size = 0.735
@@ -64,11 +64,18 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("2_3qnke")
 
-[node name="pc" parent="." unique_id=453375844 instance=ExtResource("3_nd71p")]
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=77609382]
+transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, -0.99999994, 0, 0.99999994, -4.4703484e-08, 0, 0, 0)
+target_position = Vector3(0, -10.64, 0)
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+
+[node name="pc" parent="." unique_id=1858201107 instance=ExtResource("3_nd71p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21689272, 0, -0.45510328)
 script = ExtResource("3_qjeyg")
 
-[node name="keyboard" parent="pc" unique_id=1443286411 instance=ExtResource("1_g7g4h")]
+[node name="keyboard" parent="pc" unique_id=997873238 instance=ExtResource("1_g7g4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035221934, 0, 0.021073341)
 script = ExtResource("2_j8ivh")
 
@@ -77,6 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047177836, 0.10863447, 0.41
 
 [node name="OmniLight3D" type="OmniLight3D" parent="pc" unique_id=1981783495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040375546, 0.0963842, 0.25963408)
+visible = false
 light_color = Color(0.9999997, 0.12005576, 0.12285831, 1)
 light_energy = 0.2
 omni_range = 0.052483894

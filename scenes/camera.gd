@@ -1,6 +1,7 @@
 extends Camera3D
 
 @onready var camera := self
+@onready var raycast := $RayCast3D
 
 var time = 0
 var power = 0.005
@@ -16,8 +17,19 @@ func _ready() -> void:
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
 
+func rayfire():
+
+
+	await get_tree().physics_frame
+	print(raycast.is_colliding())
+	if raycast.is_colliding() != false:
+		print(raycast.get_collider().get_parent().name)
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		print(">>>")
+		rayfire()
+	
 	if event is InputEventMouseMotion:
 		var mouse_delta = event.screen_relative
 		var viewport_size = get_viewport().get_visible_rect().size
