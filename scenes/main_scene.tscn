@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bnjohlrkoulqu"]
 
-[ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scripts/camera.gd" id="1_7ddre"]
-[ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
-[ext_resource type="AudioStream" uid="uid://b8ojaytkwcra5" path="res://sounds/music/Prison.mp3" id="3_7ddre"]
-[ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_nd71p"]
-[ext_resource type="PackedScene" uid="uid://da3w6j321dfma" path="res://scenes/terminal.tscn" id="5_qjeyg"]
+[ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scripts/camera.gd" id="1_gubc5"]
+[ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_rt2n2"]
+[ext_resource type="AudioStream" uid="uid://b8ojaytkwcra5" path="res://sounds/music/Prison.mp3" id="3_c16ls"]
+[ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="4_18nlu"]
+[ext_resource type="PackedScene" uid="uid://da3w6j321dfma" path="res://scenes/terminal.tscn" id="5_c1pb6"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
@@ -35,7 +35,8 @@ current = true
 fov = 47.337795
 size = 0.735
 near = 0.001
-script = ExtResource("1_7ddre")
+script = ExtResource("1_gubc5")
+fov_original = 70
 fov_min = 25
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=77609382]
@@ -61,14 +62,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-texture = ExtResource("2_3qnke")
+texture = ExtResource("2_rt2n2")
 expand_mode = 1
 
 [node name="audio_main" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=1994723148]
-stream = ExtResource("3_7ddre")
+stream = ExtResource("3_c16ls")
 max_db = -13.413
 
-[node name="pc" parent="." unique_id=1262133902 instance=ExtResource("3_nd71p")]
+[node name="pc" parent="." unique_id=1262133902 instance=ExtResource("4_18nlu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17996788, 0, -0.49915546)
 
 [node name="audio_pc" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
@@ -84,4 +85,4 @@ omni_range = 0.052564356
 
 [node name="CanvasLayer" type="CanvasLayer" parent="pc/SubViewport" unique_id=28535860]
 
-[node name="Terminal" parent="pc/SubViewport/CanvasLayer" unique_id=204974278 instance=ExtResource("5_qjeyg")]
+[node name="Terminal" parent="pc/SubViewport/CanvasLayer" unique_id=204974278 instance=ExtResource("5_c1pb6")]
