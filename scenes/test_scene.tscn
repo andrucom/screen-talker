@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://bnjohlrkoulqu"]
 
-[ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scenes/camera.gd" id="1_7ddre"]
-[ext_resource type="PackedScene" uid="uid://bxttv2qvpftws" path="res://models/keyboard.fbx" id="1_g7g4h"]
+[ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scripts/camera.gd" id="1_7ddre"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
-[ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/keyboard.gd" id="2_j8ivh"]
-[ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_3qnke"]
-[ext_resource type="Script" path="res://models/pc.gd" id="3_qjeyg"]
+[ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_nd71p"]
+[ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/keyboard.gd" id="4_7ddre"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
@@ -69,20 +67,9 @@ hit_from_inside = true
 debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
 debug_shape_thickness = 1
 
-[node name="pc2" parent="." unique_id=1733564886 instance=ExtResource("3_3qnke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21926695, 0, -0.45539564)
-script = ExtResource("3_qjeyg")
+[node name="pc" parent="." unique_id=658753638 instance=ExtResource("3_nd71p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28567064, 0, -0.49915546)
+script = ExtResource("4_7ddre")
 
-[node name="keyboard" parent="pc2" unique_id=997873238 instance=ExtResource("1_g7g4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037596166, 0, 0.021365702)
-script = ExtResource("2_j8ivh")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="pc2/keyboard" unique_id=1760812099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047177836, 0.10863447, 0.4142425)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="pc2" unique_id=1981783495]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040689185, 0.0963842, 0.23719473)
-visible = false
-light_color = Color(0.9999997, 0.12005576, 0.12285831, 1)
-light_energy = 0.2
-omni_range = 0.052483894
+[node name="audio_pc" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3328485, 0.10863447, 0.91339797)

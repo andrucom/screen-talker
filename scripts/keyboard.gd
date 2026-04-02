@@ -1,5 +1,5 @@
 extends Node3D
-@onready var audio = $AudioStreamPlayer3D
+@onready var audio = $audio_pc
 
 var pressed_handled = {}
 var push_power = 0.005
