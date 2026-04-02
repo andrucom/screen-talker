@@ -77,7 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3328485, 0.10863447, 0.9133
 
 [node name="power_light" type="OmniLight3D" parent="pc" unique_id=1224922466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041775912, 0.095131055, 0.26986462)
-light_color = Color(0.9999997, 0.12005576, 0.12285831, 1)
+light_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
 light_specular = 5.44
 omni_range = 0.052564356
 

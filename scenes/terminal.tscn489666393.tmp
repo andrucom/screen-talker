@@ -29,10 +29,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1355139261]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 15.0
-offset_right = 469.0
-offset_bottom = 412.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 506.0
+offset_bottom = 399.0
 theme = SubResource("Theme_m430i")
 theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
 bbcode_enabled = true
@@ -41,23 +41,6 @@ Hello
 И не подумай, что тут что-то [shake rate=250 level=20]не так[/shake]
 
 bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "
-scroll_active = false
-scroll_following_visible_characters = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1281129917]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 440.0
-offset_right = 479.0
-offset_bottom = 507.0
-theme = SubResource("Theme_m430i")
-theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
-bbcode_enabled = true
-text = "1. Первый выбор
-2. Второй
-3. Да я ничего не знаю
-
-"
 scroll_active = false
 scroll_following_visible_characters = true
 
