@@ -11,10 +11,23 @@ var sound_enter = preload("res://sounds/enter.mp3")
 func _ready() -> void:
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
+		print(OS.get_keycode_string(event.keycode).to_lower())
+		push_button(OS.get_keycode_string(event.keycode).to_lower())
+		pressed_handled[event.keycode] = true
+		
+	if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
+		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
+		pressed_handled[event.keycode] = false
+
+func interact(name):
+	print(">>>", name)
+	if name == "comp_button":
+		print("Yes")
+	else:
+		print("No")
 	pass
-	
 
 #--------------------#
 # Функции для самого процесса нажатия и отжатия 
@@ -44,20 +57,4 @@ func unpush_button(node: String):
 		var body = get_node(node)
 		body.position += Vector3(0,push_power,0)
 		
-		
 # Нажатие и отжатие кнопок на клавиатуре. !На 3д модели должны совпадать keycode с названием мешей
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
-		print(OS.get_keycode_string(event.keycode).to_lower())
-		push_button(OS.get_keycode_string(event.keycode).to_lower())
-		pressed_handled[event.keycode] = true
-		
-	if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
-		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
-		pressed_handled[event.keycode] = false
-
-
-		#if event is InputEventKey:
-			#if event.keycode == KEY_W and event.pres:
-				#body.position -= Vector3(0,0.01,0)
-			

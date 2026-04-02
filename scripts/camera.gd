@@ -24,12 +24,10 @@ func _physics_process(delta: float) -> void:
 		rayfire()
 		is_raycast_input_active = false
 
-func rayfire():
-	if raycast.is_colliding() != false:
-		print(raycast.get_collider().get_parent().name)
 
+		
 #Следование камеры за мышкой 
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:	
 	if event is InputEventKey:
 		print(">>>")
 		is_raycast_input_active = true
@@ -66,14 +64,22 @@ func _input(event: InputEvent) -> void:
 		if OS.get_name() == "Linux":
 			Input.warp_mouse(-mouse_delta)
 
-# Дрожание камеры
-func shake(delta):
-	time += delta
-	shake_offset_x = sin(time) * power
-	shake_offset_y = sin(time) * power
-
 func _process(delta: float) -> void:
 	shake(delta)
 	# Суммируем вращение от мыши и тряску
 	camera.rotation.x = input_rotation_x + shake_offset_x
 	camera.rotation.y = input_rotation_y + shake_offset_y
+
+func shake(delta):
+	time += delta
+	shake_offset_x = sin(time) * power
+	shake_offset_y = sin(time) * power
+
+func rayfire():
+	if raycast.is_colliding() != false:
+		var tr = raycast.get_collider().get_owner()
+		var tr_name = raycast.get_collider().get_parent().name
+		print(raycast.get_collider().get_parent().name)
+		print(">", tr_name)
+		if tr.has_method("interact"):
+			tr.interact(tr_name)
