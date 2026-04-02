@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scripts/camera.gd" id="1_7ddre"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
 [ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_nd71p"]
-[ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/keyboard.gd" id="4_7ddre"]
+[ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/pc.gd" id="4_7ddre"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
@@ -68,7 +68,7 @@ debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
 debug_shape_thickness = 1
 
 [node name="pc" parent="." unique_id=658753638 instance=ExtResource("3_nd71p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28567064, 0, -0.49915546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17996788, 0, -0.49915546)
 script = ExtResource("4_7ddre")
 
 [node name="audio_pc" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
