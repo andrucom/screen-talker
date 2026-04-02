@@ -9,9 +9,17 @@ var sound_enter = preload("res://sounds/enter.mp3")
 var power = false 
 
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var viewport = $SubViewport
+	viewport.set_update_mode(SubViewport.CLEAR_MODE_ONCE)
+	
+	get_node("screen").material_override = StandardMaterial3D.new()
+	get_node("screen").material_override.albedo_texture = viewport.get_texture()
+	
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
