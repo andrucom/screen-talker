@@ -3,6 +3,7 @@ extends Camera3D
 @onready var camera := self
 @onready var raycast := $RayCast3D
 
+
 var time = 0
 var power = 0.005
 var input_rotation_x = 0.0  

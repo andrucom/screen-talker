@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scripts/camera.gd" id="1_7ddre"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
+[ext_resource type="AudioStream" uid="uid://b8ojaytkwcra5" path="res://sounds/music/Prison.mp3" id="3_7ddre"]
 [ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_nd71p"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
@@ -60,6 +61,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("2_3qnke")
 expand_mode = 1
+
+[node name="audio_main" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=1994723148]
+stream = ExtResource("3_7ddre")
+max_db = -13.413
 
 [node name="pc" parent="." unique_id=1078164693 instance=ExtResource("3_nd71p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17996788, 0, -0.49915546)
