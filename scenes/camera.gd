@@ -12,23 +12,27 @@ var shake_offset_y = 0.0
 
 var mouse_sensitivity = 0.01
 
+var is_raycast_input_active = false
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
 
+func _physics_process(delta: float) -> void:
+	if is_raycast_input_active:
+		rayfire()
+		is_raycast_input_active = false
+
 func rayfire():
-
-
-	await get_tree().physics_frame
-	print(raycast.is_colliding())
 	if raycast.is_colliding() != false:
 		print(raycast.get_collider().get_parent().name)
+
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		print(">>>")
-		rayfire()
+		is_raycast_input_active = true
 	
 	if event is InputEventMouseMotion:
 		var mouse_delta = event.screen_relative
@@ -58,7 +62,7 @@ func _input(event: InputEvent) -> void:
 		# При вызове DisplayServer.get_name() - у меня выдаёт X11,
 		# хотя я точно уверен, что у меня используется Wayland...
 		# Надо будет это дополнительно проверить.
-		# By dadakis
+		# By Dadaskis
 		if OS.get_name() == "Linux":
 			Input.warp_mouse(-mouse_delta)
 

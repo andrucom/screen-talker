@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bxttv2qvpftws" path="res://models/keyboard.fbx" id="1_g7g4h"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
 [ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/keyboard.gd" id="2_j8ivh"]
-[ext_resource type="Script" uid="uid://d1nom7pk2gtir" path="res://scenes/center_node2d.gd" id="2_wtsjf"]
-[ext_resource type="PackedScene" uid="uid://18slh83j5r2i" path="res://models/pc.fbx" id="3_nd71p"]
-[ext_resource type="Script" uid="uid://7gbmkxx444xc" path="res://models/pc.gd" id="3_qjeyg"]
+[ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_3qnke"]
+[ext_resource type="Script" path="res://models/pc.gd" id="3_qjeyg"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
@@ -15,6 +14,25 @@ glow_enabled = true
 glow_bloom = 0.6
 
 [node name="TestScene" type="Node3D" unique_id=818513904]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1734997377]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=722891032]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_3qnke")
+expand_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=971594263]
 environment = SubResource("Environment_g7g4h")
@@ -44,46 +62,26 @@ size = 0.735
 near = 0.001
 script = ExtResource("1_7ddre")
 
-[node name="Node2D" type="Node2D" parent="Camera3D" unique_id=176575205]
-scale = Vector2(0.3, 0.3)
-script = ExtResource("2_wtsjf")
-
-[node name="TextureRect" type="TextureRect" parent="Camera3D/Node2D" unique_id=722891032]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-texture = ExtResource("2_3qnke")
-
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=77609382]
 transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, -0.99999994, 0, 0.99999994, -4.4703484e-08, 0, 0, 0)
-target_position = Vector3(0, -10.64, 0)
-collide_with_areas = true
-collide_with_bodies = false
+target_position = Vector3(0, -10, 0)
+hit_from_inside = true
 debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+debug_shape_thickness = 1
 
-[node name="pc" parent="." unique_id=1858201107 instance=ExtResource("3_nd71p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21689272, 0, -0.45510328)
+[node name="pc2" parent="." unique_id=1733564886 instance=ExtResource("3_3qnke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21926695, 0, -0.45539564)
 script = ExtResource("3_qjeyg")
 
-[node name="keyboard" parent="pc" unique_id=997873238 instance=ExtResource("1_g7g4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035221934, 0, 0.021073341)
+[node name="keyboard" parent="pc2" unique_id=997873238 instance=ExtResource("1_g7g4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037596166, 0, 0.021365702)
 script = ExtResource("2_j8ivh")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="pc/keyboard" unique_id=1760812099]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="pc2/keyboard" unique_id=1760812099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047177836, 0.10863447, 0.4142425)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="pc" unique_id=1981783495]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040375546, 0.0963842, 0.25963408)
+[node name="OmniLight3D" type="OmniLight3D" parent="pc2" unique_id=1981783495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040689185, 0.0963842, 0.23719473)
 visible = false
 light_color = Color(0.9999997, 0.12005576, 0.12285831, 1)
 light_energy = 0.2
