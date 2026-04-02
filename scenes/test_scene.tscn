@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scripts/camera.gd" id="1_7ddre"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
 [ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_nd71p"]
-[ext_resource type="Script" uid="uid://ciyg01wdstp0o" path="res://scripts/pc.gd" id="4_7ddre"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
@@ -36,12 +35,12 @@ expand_mode = 1
 environment = SubResource("Environment_g7g4h")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=601029755]
-transform = Transform3D(0.93536997, -0.16936976, 0.31047848, 0, 0.8778744, 0.47889102, -0.35367075, -0.4479403, 0.8211373, 0.208204, 0.5464707, 0.39497292)
-light_energy = 3.554
+transform = Transform3D(0.86799085, -0.23780775, 0.43593496, 0, 0.87787426, 0.47889096, -0.49658006, -0.415673, 0.761987, 0.52495587, 0.5464707, 0.39497292)
+light_energy = 1.09
 light_volumetric_fog_energy = 1.901
 light_size = 0.225
 light_specular = 0.47
-spot_range = 1.2102777
+spot_range = 1.6058632
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment/SpotLight3D" unique_id=1893384897]
 transform = Transform3D(0.54199076, 0.7420811, -0.39441308, -0.54287976, 0.66742235, 0.5097339, 0.641504, -0.062152147, 0.76459754, -0.8398133, 0.5805522, -0.03782487)
@@ -67,9 +66,8 @@ hit_from_inside = true
 debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
 debug_shape_thickness = 1
 
-[node name="pc" parent="." unique_id=658753638 instance=ExtResource("3_nd71p")]
+[node name="pc" parent="." unique_id=1078164693 instance=ExtResource("3_nd71p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17996788, 0, -0.49915546)
-script = ExtResource("4_7ddre")
 
 [node name="audio_pc" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3328485, 0.10863447, 0.91339797)

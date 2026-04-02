@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be77nql07g418"
-path.s3tc="res://.godot/imported/pc_08_-_Default_metallicRoughness.jpg-c599a0713d456307316bb5bc6e2d83a6.s3tc.ctex"
+uid="uid://bphroh6a1eixe"
+path.s3tc="res://.godot/imported/pc_09_-_Default_baseColor.jpg-6f16c721887e5adee236c40fcc14ba09.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f86eb23ba6c0a202d75e436f39e0d0f3"
+"md5": "96f4e27a741b93de155811ce77f81b9f"
 }
 
 [deps]
 
-source_file="res://models/textures/pc_08_-_Default_metallicRoughness.jpg"
-dest_files=["res://.godot/imported/pc_08_-_Default_metallicRoughness.jpg-c599a0713d456307316bb5bc6e2d83a6.s3tc.ctex"]
+source_file="res://models/pc_09_-_Default_baseColor.jpg"
+dest_files=["res://.godot/imported/pc_09_-_Default_baseColor.jpg-6f16c721887e5adee236c40fcc14ba09.s3tc.ctex"]
 
 [params]
 
