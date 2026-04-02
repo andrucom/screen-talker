@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
-		print(OS.get_keycode_string(event.keycode).to_lower())
+		print("key: ", OS.get_keycode_string(event.keycode).to_lower())
 		push_button(OS.get_keycode_string(event.keycode).to_lower())
 		pressed_handled[event.keycode] = true
 		

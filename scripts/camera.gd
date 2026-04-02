@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:	
 	if event.is_action_pressed("use") :
 		rayfire()
-		
 
 	if event is InputEventMouseMotion:
 		var mouse_delta = event.screen_relative
@@ -70,9 +69,9 @@ func shake(delta):
 	shake_offset_x = sin(time) * power
 	shake_offset_y = sin(time) * power
 
-#Выпускает лучь для проверки нужного метода
+#Лучь для проверки нужного метода
 func rayfire():
-	print("fire")
+	print("ray: check")
 	if raycast.is_colliding() != false:
 		var target = raycast.get_collider().get_owner()
 		var target_name = raycast.get_collider().get_parent().name
