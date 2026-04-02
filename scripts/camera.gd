@@ -12,7 +12,6 @@ var shake_offset_y = 0.0
 
 var mouse_sensitivity = 0.01
 
-var is_raycast_input_active = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -20,18 +19,14 @@ func _ready() -> void:
 	input_rotation_y = camera.rotation.y
 
 func _physics_process(delta: float) -> void:
-	if is_raycast_input_active:
-		rayfire()
-		is_raycast_input_active = false
+	pass
 
-
-		
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:	
-	if event is InputEventKey:
-		print(">>>")
-		is_raycast_input_active = true
-	
+	if event.is_action_pressed("use") :
+		rayfire()
+		
+
 	if event is InputEventMouseMotion:
 		var mouse_delta = event.screen_relative
 		var viewport_size = get_viewport().get_visible_rect().size
@@ -75,11 +70,11 @@ func shake(delta):
 	shake_offset_x = sin(time) * power
 	shake_offset_y = sin(time) * power
 
+#Выпускает лучь для проверки нужного метода
 func rayfire():
+	print("fire")
 	if raycast.is_colliding() != false:
-		var tr = raycast.get_collider().get_owner()
-		var tr_name = raycast.get_collider().get_parent().name
-		print(raycast.get_collider().get_parent().name)
-		print(">", tr_name)
-		if tr.has_method("interact"):
-			tr.interact(tr_name)
+		var target = raycast.get_collider().get_owner()
+		var target_name = raycast.get_collider().get_parent().name
+		if target.has_method("interact"):
+			target.interact(target_name)

@@ -6,6 +6,8 @@ var push_power = 0.005
 var sound = preload("res://sounds/button.mp3")
 var sound_space = preload("res://sounds/space.mp3")
 var sound_enter = preload("res://sounds/enter.mp3")
+var power = false 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,12 +24,12 @@ func _input(event: InputEvent) -> void:
 		pressed_handled[event.keycode] = false
 
 func interact(name):
-	print(">>>", name)
 	if name == "comp_button":
-		print("Yes")
-	else:
-		print("No")
-	pass
+		power = !power
+		if power == true:
+			$power_light.light_color = Color.GREEN
+		else:
+			$power_light.light_color = Color.RED
 
 #--------------------#
 # Функции для самого процесса нажатия и отжатия 
