@@ -12,9 +12,39 @@ glow_bloom = 0.6
 
 [node name="TestScene" type="Node3D" unique_id=818513904]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1734997377]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=971594263]
+environment = SubResource("Environment_g7g4h")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=722891032]
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=601029755]
+transform = Transform3D(0.86799085, -0.23780775, 0.43593496, 0, 0.87787426, 0.47889096, -0.49658006, -0.415673, 0.761987, 0.52495587, 0.5464707, 0.39497292)
+light_energy = 1.09
+spot_range = 1.6058632
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=1893384897]
+transform = Transform3D(0.8791982, 0.45830706, -0.13025078, -0.16936974, 0.55614895, 0.81364137, 0.4453364, -0.6932914, 0.56658846, -0.35854346, 1.0380086, 0.5418655)
+light_color = Color(0.89411765, 0.99215686, 0.84313726, 1)
+light_energy = 3.554
+light_volumetric_fog_energy = 1.901
+spot_range = 1.2102777
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=306765377]
+transform = Transform3D(1, 0, 0, 0, 0.96726775, 0.25375795, 0, -0.25375795, 0.96726775, -0.16799986, 0.5348957, 0.65953636)
+current = true
+fov = 47.337795
+size = 0.735
+near = 0.001
+script = ExtResource("1_7ddre")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=77609382]
+transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, -0.99999994, 0, 0.99999994, -4.4703484e-08, 0, 0, 0)
+target_position = Vector3(0, -10, 0)
+hit_back_faces = false
+debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+debug_shape_thickness = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D" unique_id=1734997377]
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/CanvasLayer" unique_id=722891032]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,41 +60,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("2_3qnke")
 expand_mode = 1
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=971594263]
-environment = SubResource("Environment_g7g4h")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=601029755]
-transform = Transform3D(0.86799085, -0.23780775, 0.43593496, 0, 0.87787426, 0.47889096, -0.49658006, -0.415673, 0.761987, 0.52495587, 0.5464707, 0.39497292)
-light_energy = 1.09
-light_volumetric_fog_energy = 1.901
-light_size = 0.225
-light_specular = 0.47
-spot_range = 1.6058632
-
-[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment/SpotLight3D" unique_id=1893384897]
-transform = Transform3D(0.54199076, 0.7420811, -0.39441308, -0.54287976, 0.66742235, 0.5097339, 0.641504, -0.062152147, 0.76459754, -0.8398133, 0.5805522, -0.03782487)
-light_color = Color(0.89411765, 0.99215686, 0.84313726, 1)
-light_energy = 3.554
-light_volumetric_fog_energy = 1.901
-light_size = 0.225
-light_specular = 0.47
-spot_range = 1.2102777
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=306765377]
-transform = Transform3D(1, 0, 0, 0, 0.96726775, 0.25375795, 0, -0.25375795, 0.96726775, -0.16799986, 0.4865734, 0.65953636)
-current = true
-fov = 47.337795
-size = 0.735
-near = 0.001
-script = ExtResource("1_7ddre")
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=77609382]
-transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, -0.99999994, 0, 0.99999994, -4.4703484e-08, 0, 0, 0)
-target_position = Vector3(0, -10, 0)
-hit_from_inside = true
-debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
-debug_shape_thickness = 1
 
 [node name="pc" parent="." unique_id=1078164693 instance=ExtResource("3_nd71p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17996788, 0, -0.49915546)
