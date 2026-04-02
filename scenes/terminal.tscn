@@ -2,18 +2,13 @@
 
 [ext_resource type="Shader" uid="uid://coe1ka3ll3mlr" path="res://shaders/terminal.gdshader" id="1_m430i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sy66w"]
+[sub_resource type="FontVariation" id="FontVariation_m430i"]
+variation_embolden = -1.28
 
-[sub_resource type="LabelSettings" id="LabelSettings_vs6ym"]
-line_spacing = 15.12
-font_size = 50
-font_color = Color(0.21176471, 0.5686275, 0.21176471, 1)
-stacked_outline_count = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_m430i"]
-font_size = 69
-font_color = Color(0.93333334, 0.05490196, 0.015686275, 1)
-stacked_outline_count = 1
+[sub_resource type="Theme" id="Theme_m430i"]
+resource_local_to_scene = true
+default_font = SubResource("FontVariation_m430i")
+default_font_size = 12
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dhnb1"]
 shader = ExtResource("1_m430i")
@@ -30,30 +25,22 @@ offset_right = 512.0
 offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="." unique_id=471353965]
-material = SubResource("ShaderMaterial_sy66w")
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1355139261]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 20.0
-offset_right = 133.0
-offset_bottom = 173.0
-text = "TEST
-"
-label_settings = SubResource("LabelSettings_vs6ym")
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 506.0
+offset_bottom = 399.0
+theme = SubResource("Theme_m430i")
+theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+bbcode_enabled = true
+text = "Привет как дела... Тут чертовски одиноко... Надеюсб ты все [wave amp=50 freq=2]видишь[/wave]
+Hello
+И не подумай, что тут что-то [shake rate=250 level=20]не так[/shake]
 
-[node name="Label2" type="Label" parent="." unique_id=1200435328]
-material = SubResource("ShaderMaterial_sy66w")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "LOVELY TEXT 
-OVER HERE"
-label_settings = SubResource("LabelSettings_m430i")
-horizontal_alignment = 1
-vertical_alignment = 1
+bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "
+scroll_active = false
+scroll_following_visible_characters = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=11385505]
 material = SubResource("ShaderMaterial_dhnb1")

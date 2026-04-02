@@ -9,8 +9,6 @@ var sound_enter = preload("res://sounds/enter.mp3")
 var power = false 
 
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var viewport = $SubViewport

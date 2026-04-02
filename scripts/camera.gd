@@ -12,7 +12,8 @@ var shake_offset_x = 0.0
 var shake_offset_y = 0.0
 
 var mouse_sensitivity = 0.01
-
+@export var fov_original = 48
+@export var fov_min = 20
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -20,7 +21,9 @@ func _ready() -> void:
 	input_rotation_y = camera.rotation.y
 
 func _physics_process(delta: float) -> void:
+	rayfire_screen()
 	pass
+
 
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:	
@@ -71,6 +74,15 @@ func shake(delta):
 	shake_offset_y = sin(time) * power
 
 #Лучь для проверки нужного метода
+func rayfire_screen():
+	if raycast.is_colliding() != false:
+		var target_name = raycast.get_collider().get_parent().name
+		if target_name in ["screen", "screen window"]:
+			print("Да")
+			camera.set_fov(fov_min)
+	else:
+		camera.set_fov(fov_original)
+
 func rayfire():
 	print("ray: check")
 	if raycast.is_colliding() != false:
