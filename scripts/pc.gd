@@ -16,9 +16,15 @@ func _ready() -> void:
 	var viewport = $SubViewport
 	viewport.set_update_mode(SubViewport.CLEAR_MODE_ONCE)
 	
-	get_node("screen").material_override = StandardMaterial3D.new()
-	get_node("screen").material_override.albedo_texture = viewport.get_texture()
-	
+	var material: = StandardMaterial3D.new()
+	material.albedo_texture = viewport.get_texture()
+	material.emission_enabled = true
+	material.emission_texture = viewport.get_texture()
+	material.emission_operator = BaseMaterial3D.EMISSION_OP_MULTIPLY
+	material.emission = Color.WHITE
+	material.emission_intensity = 2.0;
+	material.emission_energy_multiplier = 2.0;
+	get_node("screen").material_override = material
 
 
 func _input(event: InputEvent) -> void:

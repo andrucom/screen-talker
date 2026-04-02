@@ -4,20 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_3qnke"]
 [ext_resource type="AudioStream" uid="uid://b8ojaytkwcra5" path="res://sounds/music/Prison.mp3" id="3_7ddre"]
 [ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="3_nd71p"]
+[ext_resource type="PackedScene" uid="uid://da3w6j321dfma" path="res://scenes/terminal.tscn" id="5_qjeyg"]
 
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
 background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
 glow_enabled = true
 glow_bloom = 0.6
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qnke"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7ddre"]
-line_spacing = 15.12
-font_size = 50
-font_color = Color(0.21176471, 0.5686275, 0.21176471, 1)
-stacked_outline_count = 1
 
 [node name="TestScene" type="Node3D" unique_id=818513904]
 
@@ -88,12 +81,6 @@ omni_range = 0.052564356
 
 [node name="SubViewport" type="SubViewport" parent="pc" unique_id=1131155427]
 
-[node name="Node2D" type="Node2D" parent="pc/SubViewport" unique_id=1790137726]
+[node name="CanvasLayer" type="CanvasLayer" parent="pc/SubViewport" unique_id=28535860]
 
-[node name="Label" type="Label" parent="pc/SubViewport/Node2D" unique_id=1719199202]
-material = SubResource("ShaderMaterial_3qnke")
-offset_right = 40.0
-offset_bottom = 23.0
-text = "TEST
-"
-label_settings = SubResource("LabelSettings_7ddre")
+[node name="Terminal" parent="pc/SubViewport/CanvasLayer" unique_id=204974278 instance=ExtResource("5_qjeyg")]
