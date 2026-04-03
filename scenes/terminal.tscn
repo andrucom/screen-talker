@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://da3w6j321dfma"]
 
+[ext_resource type="Script" uid="uid://yg2wrq4mf80m" path="res://scripts/terminal_v2/terminal_v2.gd" id="1_dhnb1"]
 [ext_resource type="Shader" uid="uid://coe1ka3ll3mlr" path="res://shaders/terminal.gdshader" id="1_m430i"]
-[ext_resource type="Script" uid="uid://dpjq81xdvcewl" path="res://scripts/terminal_letter_grid.gd" id="1_vs6ym"]
+[ext_resource type="Script" uid="uid://dpjq81xdvcewl" path="res://scripts/terminal_v2/terminal_letters_grid.gd" id="1_vs6ym"]
 [ext_resource type="FontFile" uid="uid://dmqgbsocomw0k" path="res://fonts/oldschool_pc_font_pack_v2.2_win/ttf - Ac (aspect-corrected)/AcPlus_IBM_VGA_8x14.ttf" id="2_vs6ym"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dhnb1"]
@@ -17,6 +18,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 512.0
 offset_bottom = 512.0
+script = ExtResource("1_dhnb1")
 
 [node name="Background" type="ColorRect" parent="." unique_id=2108045105]
 layout_mode = 1
@@ -44,17 +46,58 @@ script = ExtResource("1_vs6ym")
 width = 73
 height = 51
 
-[node name="_PRESET" type="ColorRect" parent="TerminalLetterGrid" unique_id=427978040]
-visible = false
+[node name="_PRESET" type="Control" parent="TerminalLetterGrid" unique_id=411773987]
 custom_minimum_size = Vector2(3, 6)
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+
+[node name="BackgroundColor" type="ColorRect" parent="TerminalLetterGrid/_PRESET" unique_id=519295894]
+layout_mode = 0
+offset_right = 7.0
+offset_bottom = 10.0
+color = Color(0.28279197, 0.5422804, 0.94801587, 1)
 
 [node name="Letter" type="Label" parent="TerminalLetterGrid/_PRESET" unique_id=768458627]
 layout_mode = 0
 offset_top = -2.0
 offset_right = 7.0
 offset_bottom = 12.0
+text = "3"
+label_settings = SubResource("LabelSettings_dhnb1")
+
+[node name="_PRESET2" type="Control" parent="TerminalLetterGrid" unique_id=2143911652]
+custom_minimum_size = Vector2(3, 6)
+layout_mode = 2
+
+[node name="BackgroundColor" type="ColorRect" parent="TerminalLetterGrid/_PRESET2" unique_id=1922350811]
+layout_mode = 0
+offset_right = 7.0
+offset_bottom = 10.0
+color = Color(0.28279197, 0.5422804, 0.94801587, 1)
+
+[node name="Letter" type="Label" parent="TerminalLetterGrid/_PRESET2" unique_id=667228093]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 12.0
+text = "3"
+label_settings = SubResource("LabelSettings_dhnb1")
+
+[node name="_PRESET3" type="Control" parent="TerminalLetterGrid" unique_id=1490768723]
+custom_minimum_size = Vector2(3, 6)
+layout_mode = 2
+
+[node name="BackgroundColor" type="ColorRect" parent="TerminalLetterGrid/_PRESET3" unique_id=1362777966]
+layout_mode = 0
+offset_right = 7.0
+offset_bottom = 10.0
+color = Color(0.28279197, 0.5422804, 0.94801587, 1)
+
+[node name="Letter" type="Label" parent="TerminalLetterGrid/_PRESET3" unique_id=1889333365]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 12.0
+text = "3"
 label_settings = SubResource("LabelSettings_dhnb1")
 
 [node name="PostProcessing" type="ColorRect" parent="." unique_id=11385505]

@@ -80,7 +80,7 @@ func rayfire_screen():
 	if raycast.is_colliding() != false:
 		var target_name = raycast.get_collider().get_parent().name
 		if target_name in ["screen", "screen window"]:
-			camera.set_fov(0.0)
+			#camera.set_fov(0.0)
 			var tween = create_tween()
 			tween.tween_property(camera, "fov", fov_min, time_fov)
 			

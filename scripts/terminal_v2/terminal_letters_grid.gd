@@ -1,5 +1,7 @@
 @tool
 
+class_name TerminalLettersGrid
+
 extends GridContainer
 
 @export var width: = 0: 
@@ -25,10 +27,14 @@ func update_grid():
 		child.queue_free()
 	
 	columns = width
-	for x in range(width):
-		for y in range(height):
+	for y in range(height):
+		for x in range(width):
 			var dupe = preset.duplicate()
-			dupe.name = str(x) + ":" + str(y)
+			dupe.name = str(x) + "_" + str(y)
+			
+			dupe.get_child(0).color = Color.BLACK
+			dupe.get_child(1).text = " "
+			
 			add_child(dupe)
 	
 	preset.visible = false
@@ -49,10 +55,14 @@ func set_letter(
 		letter = " "
 	letter = letter[0]
 	
-	var rect: = get_node(str(x) + ":" + str(y)) as ColorRect
-	rect.color = color_background
+	var rect = get_node(str(x) + "_" + str(y))
+	if not rect:
+		return
 	
-	var letter_label: = rect.get_child(0) as Label
+	var background_color: = rect.get_child(0) as ColorRect
+	background_color.color = color_background
+	
+	var letter_label: = rect.get_child(1) as Label
 	letter_label.self_modulate = color
 	letter_label.text = letter
 
@@ -62,8 +72,11 @@ func get_letter_char(x: int, y: int) -> String:
 	if y < 0 or y >= height:
 		return " "
 	
-	var rect: = get_node(str(x) + ":" + str(y)) as ColorRect
-	var letter_label: = rect.get_child(0) as Label
+	var rect = get_node(str(x) + "_" + str(y))
+	if not rect:
+		return " "
+	
+	var letter_label: = rect.get_child(1) as Label
 	return letter_label.text
 
 func get_letter_color(x: int, y: int) -> Color:
@@ -72,8 +85,11 @@ func get_letter_color(x: int, y: int) -> Color:
 	if y < 0 or y >= height:
 		return Color.BLACK
 	
-	var rect: = get_node(str(x) + ":" + str(y)) as ColorRect
-	var letter_label: = rect.get_child(0) as Label
+	var rect = get_node(str(x) + "_" + str(y))
+	if not rect:
+		return Color.BLACK
+	
+	var letter_label: = rect.get_child(1) as Label
 	return letter_label.self_modulate
 
 func get_letter_background_color(x: int, y: int) -> Color:
@@ -82,8 +98,22 @@ func get_letter_background_color(x: int, y: int) -> Color:
 	if y < 0 or y >= height:
 		return Color.BLACK
 	
-	var rect: = get_node(str(x) + ":" + str(y)) as ColorRect
-	return rect.color
+	var rect = get_node(str(x) + "_" + str(y))
+	if not rect:
+		return Color.BLACK
+	
+	var background_color: = rect.get_child(0) as ColorRect
+	return background_color.color
+
+func write_string(
+	x: int,
+	y: int,
+	text: String,
+	color: = Color.WHITE,
+	color_background: = Color.BLACK
+):
+	for index in range(len(text)):
+		set_letter(x + index, y, text[index], color, color_background)
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
