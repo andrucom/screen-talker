@@ -1,24 +1,13 @@
 [gd_scene format=3 uid="uid://da3w6j321dfma"]
 
 [ext_resource type="Shader" uid="uid://coe1ka3ll3mlr" path="res://shaders/terminal.gdshader" id="1_m430i"]
-[ext_resource type="Script" uid="uid://1japkjf7q2ax" path="res://scripts/terminal.gd" id="1_sy66w"]
+[ext_resource type="Script" uid="uid://dpjq81xdvcewl" path="res://scripts/terminal_letter_grid.gd" id="1_vs6ym"]
+[ext_resource type="FontFile" uid="uid://dmqgbsocomw0k" path="res://fonts/oldschool_pc_font_pack_v2.2_win/ttf - Ac (aspect-corrected)/AcPlus_IBM_VGA_8x14.ttf" id="2_vs6ym"]
 
-[sub_resource type="FontVariation" id="FontVariation_sy66w"]
-variation_embolden = -2.0
-spacing_glyph = -1
-
-[sub_resource type="Theme" id="Theme_vs6ym"]
-default_base_scale = 5.85
-default_font = SubResource("FontVariation_sy66w")
-default_font_size = 0
-
-[sub_resource type="FontVariation" id="FontVariation_m430i"]
-variation_embolden = -1.28
-
-[sub_resource type="Theme" id="Theme_m430i"]
-resource_local_to_scene = true
-default_font = SubResource("FontVariation_m430i")
-default_font_size = 12
+[sub_resource type="LabelSettings" id="LabelSettings_dhnb1"]
+line_spacing = 2.47
+paragraph_spacing = -1.035
+font = ExtResource("2_vs6ym")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dhnb1"]
 shader = ExtResource("1_m430i")
@@ -28,82 +17,47 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 512.0
 offset_bottom = 512.0
-script = ExtResource("1_sy66w")
 
-[node name="background" type="ColorRect" parent="." unique_id=2108045105]
+[node name="Background" type="ColorRect" parent="." unique_id=2108045105]
 layout_mode = 1
 offset_right = 512.0
 offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1976182303]
+[node name="TerminalLetterGrid" type="GridContainer" parent="." unique_id=151553942]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+modulate = Color(0.04303915, 0.043039158, 0.04303913, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 73
+script = ExtResource("1_vs6ym")
+width = 73
+height = 51
+
+[node name="_PRESET" type="ColorRect" parent="TerminalLetterGrid" unique_id=427978040]
+visible = false
+custom_minimum_size = Vector2(3, 6)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Letter" type="Label" parent="TerminalLetterGrid/_PRESET" unique_id=768458627]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 14.0
-offset_right = 172.0
-offset_bottom = 63.0
-scale = Vector2(0.6000049, 0.6000049)
-theme = SubResource("Theme_vs6ym")
-theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
-text = "VER: "
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_dhnb1")
 
-[node name="Label2" type="Label" parent="." unique_id=713904560]
-layout_mode = 0
-offset_left = 293.0
-offset_top = 14.600005
-offset_right = 333.0
-offset_bottom = 63.600006
-scale = Vector2(0.6000049, 0.6000049)
-theme = SubResource("Theme_vs6ym")
-theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
-text = "TIME: "
-
-[node name="Label3" type="Label" parent="." unique_id=16358674]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 28.0
-offset_right = 712.0
-offset_bottom = 77.0
-scale = Vector2(0.6000049, 0.6000049)
-theme = SubResource("Theme_vs6ym")
-theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
-text = "_______________________________________________________________________________________________________________________________"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1355139261]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 43.0
-offset_right = 469.0
-offset_bottom = 440.0
-theme = SubResource("Theme_m430i")
-theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
-bbcode_enabled = true
-text = "Привет как дела... Тут чертовски одиноко... Надеюсб ты все [wave amp=50 freq=2]видишь[/wave]
-Hello
-И не подумай, что тут что-то [shake rate=250 level=20]не так[/shake]
-
-bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "
-scroll_active = false
-scroll_following_visible_characters = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1281129917]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 440.0
-offset_right = 479.0
-offset_bottom = 507.0
-theme = SubResource("Theme_m430i")
-theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
-bbcode_enabled = true
-text = "1. Первый выбор
-2. Второй
-3. Да я ничего не знаю
-
-"
-scroll_active = false
-scroll_following_visible_characters = true
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=11385505]
+[node name="PostProcessing" type="ColorRect" parent="." unique_id=11385505]
 material = SubResource("ShaderMaterial_dhnb1")
 layout_mode = 1
 offset_right = 512.0

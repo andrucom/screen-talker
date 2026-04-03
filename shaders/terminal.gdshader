@@ -53,16 +53,14 @@ void fragment() {
   
   // Смешиваем обычное изображение со строками:
   // 20% строк, 80% обычного цвета
-  color = mix(color, color_scanlines, 0.2);
+  color = mix(color, color_scanlines, 0.05);
   
   // Добавляем дополнительные 30% яркости от строк (делаем их заметнее)
-  color += color_scanlines * 0.3;
+  color += color_scanlines * 0.1;
   
   // ВАЖНО: Переменная COLOR - это финальный цвет пикселя
   // Всё, что мы записали выше - это математика, а здесь - результат
   COLOR = color;
 }
 
-
-
-// by dadaskis
+// by Dadaskis
