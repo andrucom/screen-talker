@@ -5,14 +5,14 @@ extends Camera3D
 
 
 var time = 0
-var power = 0.005
+
 var input_rotation_x = 0.0  
 var input_rotation_y = 0.0  
 var shake_offset_x = 0.0
 var shake_offset_y = 0.0
-
 var mouse_sensitivity = 0.01
 
+@export var shake_power = 0.005
 @export var time_fov = 5.0
 @export var fov_original = 48
 @export var fov_min = 20
@@ -72,8 +72,8 @@ func _process(delta: float) -> void:
 
 func shake(delta):
 	time += delta
-	shake_offset_x = sin(time) * power
-	shake_offset_y = sin(time) * power
+	shake_offset_x = sin(time) * shake_power
+	shake_offset_y = sin(time) * shake_power
 
 #Лучь для проверки нужного метода
 func rayfire_screen():
