@@ -15,10 +15,18 @@ func run_program(program_name) -> bool:
 	if not program_instance:
 		return false
 	program_instance.initialize(letters_grid)
+	programs.append(program_instance)
 	
 	return true
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func init_terminal():
 	letters_grid = $TerminalLetterGrid
 	run_program("bootloader")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	call_deferred("init_terminal")
+
+func _process(delta: float) -> void:
+	for program in programs:
+		program.update(delta)

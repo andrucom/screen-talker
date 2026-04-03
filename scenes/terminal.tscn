@@ -27,9 +27,6 @@ offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
 
 [node name="TerminalLetterGrid" type="GridContainer" parent="." unique_id=151553942]
-process_thread_group = 2
-process_thread_group_order = 0
-process_thread_messages = 0
 modulate = Color(0.04303915, 0.043039158, 0.04303913, 1)
 layout_mode = 1
 anchors_preset = 15

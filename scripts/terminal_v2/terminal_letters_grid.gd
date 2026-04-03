@@ -115,6 +115,18 @@ func write_string(
 	for index in range(len(text)):
 		set_letter(x + index, y, text[index], color, color_background)
 
+func clear(color_background: = Color.BLACK):
+	for x in range(width):
+		for y in range(height):
+			set_letter(x, y, " ", Color.WHITE, color_background)
+
+func clear_area(
+		x_start: int, x_end: int, 
+			y_start: int, y_end: int, color: = Color.BLACK):
+	for x in range(x_start, x_end):
+		for y in range(y_start, y_end):
+			set_letter(x, y, " ", Color.WHITE, color)
+
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		update_grid()
