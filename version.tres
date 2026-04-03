@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="VersionData" format=3 uid="uid://5uyv4tbpv12w"]
+
+[ext_resource type="Script" uid="uid://c8l8k3g7turfj" path="res://scripts/version.gd" id="1_qlspv"]
+
+[resource]
+script = ExtResource("1_qlspv")
+metadata/_custom_type_script = "uid://c8l8k3g7turfj"
