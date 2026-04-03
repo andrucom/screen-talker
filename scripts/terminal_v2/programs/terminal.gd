@@ -7,7 +7,7 @@ var display_lines_max = 0
 
 func on_startup():
 	letters.clear()
-	letters.write_string(0, 0, "Terminal")
+	letters.write_string(3, 0, "Terminal")
 	letters.clear_area(
 		0, letters.width, letters.height - 1, letters.height, Color.DARK_BLUE)
 	display_lines_max = letters.height - 2
@@ -36,7 +36,7 @@ func on_key_press(key: String) -> void:
 				for index in range(offset, len(terminal_lines)):
 					letters.write_string_last(
 						0,
-						1 + index, 
+						2 + index, 
 						terminal_lines[index], 
 						letters.width - 1
 					)
@@ -45,7 +45,7 @@ func on_key_press(key: String) -> void:
 		text_input += key
 	
 	letters.clear_area(
-		1, letters.width, letters.height - 1, letters.height, Color.DARK_BLUE)
+		2, letters.width, letters.height - 1, letters.height, Color.DARK_BLUE)
 	letters.write_string_last(
-		1, letters.height - 1, 
+		2, letters.height - 1, 
 			text_input, letters.width - 2, Color.WHITE, Color.DARK_BLUE)
