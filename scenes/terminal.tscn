@@ -39,9 +39,9 @@ color = Color(0, 0, 0, 1)
 [node name="Label" type="Label" parent="." unique_id=1976182303]
 layout_mode = 0
 offset_left = 132.0
-offset_top = 6.0
+offset_top = 14.0
 offset_right = 172.0
-offset_bottom = 55.0
+offset_bottom = 63.0
 scale = Vector2(0.6000049, 0.6000049)
 theme = SubResource("Theme_vs6ym")
 theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
@@ -50,9 +50,9 @@ text = "VER: "
 [node name="Label2" type="Label" parent="." unique_id=713904560]
 layout_mode = 0
 offset_left = 293.0
-offset_top = 6.600005
+offset_top = 14.600005
 offset_right = 333.0
-offset_bottom = 55.600006
+offset_bottom = 63.600006
 scale = Vector2(0.6000049, 0.6000049)
 theme = SubResource("Theme_vs6ym")
 theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)

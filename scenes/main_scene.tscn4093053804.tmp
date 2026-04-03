@@ -36,7 +36,6 @@ fov = 47.337795
 size = 0.735
 near = 0.001
 script = ExtResource("1_gubc5")
-time_fov = 3.5
 fov_original = 70
 fov_min = 25
 

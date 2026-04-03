@@ -12,6 +12,8 @@ var shake_offset_x = 0.0
 var shake_offset_y = 0.0
 
 var mouse_sensitivity = 0.01
+
+@export var time_fov = 5.0
 @export var fov_original = 48
 @export var fov_min = 20
 
@@ -22,7 +24,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	rayfire_screen()
-	pass
+
 
 
 #Следование камеры за мышкой 
@@ -78,10 +80,19 @@ func rayfire_screen():
 	if raycast.is_colliding() != false:
 		var target_name = raycast.get_collider().get_parent().name
 		if target_name in ["screen", "screen window"]:
-			print("Да")
-			camera.set_fov(fov_min)
+			camera.set_fov(0.0)
+			var tween = create_tween()
+			tween.tween_property(camera, "fov", fov_min, time_fov)
+			
+			#labelR.visible_ratio = 0.0
+			#var tween = create_tween()
+			#tween.tween_property(labelR, "visible_ratio", 1.0, 1.0)
+			
+			#camera.set_fov(fov_min)
 	else:
-		camera.set_fov(fov_original)
+		var tween = create_tween()
+		tween.tween_property(camera, "fov", fov_original, time_fov)
+		pass
 
 func rayfire():
 	print("ray: check")
