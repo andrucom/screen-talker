@@ -35,6 +35,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
 		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
 		pressed_handled[event.keycode] = false
+	
+	$SubViewport.push_input(event)
 
 func interact(name):
 	if name == "comp_button":

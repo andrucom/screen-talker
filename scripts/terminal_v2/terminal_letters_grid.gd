@@ -115,6 +115,19 @@ func write_string(
 	for index in range(len(text)):
 		set_letter(x + index, y, text[index], color, color_background)
 
+func write_string_last(
+	x: int,
+	y: int,
+	text: String,
+	last_symbols_amount: int,
+	color: = Color.WHITE,
+	color_background: = Color.BLACK
+):
+	var offset = len(text) - last_symbols_amount
+	if offset > 0:
+		text = text.substr(offset, last_symbols_amount)
+	write_string(x, y, text, color, color_background)
+
 func clear(color_background: = Color.BLACK):
 	for x in range(width):
 		for y in range(height):

@@ -265,7 +265,9 @@ var grayscale_to_ascii = [
 	"4"   # 254
 ]
 
-func startup():
+func on_startup():
+	letters.clear()
+	
 	var logs = [
 		"Zer0Soft (tm) Operating System",
 		"RDOS Версия 4.00",
@@ -314,8 +316,13 @@ func startup():
 	
 	can_paint_header = false
 	letters.clear()
+	
+	await sleep(1.0)
+	
+	run_program("terminal")
+	kill_self()
 
-func update(delta: float):
+func on_update(delta: float):
 	time += delta
 	if can_paint_header:
 		var fucking_red = Color(sin(time * 3), 0.0, 0.0)

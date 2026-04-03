@@ -83,6 +83,7 @@ light_specular = 5.44
 omni_range = 0.052564356
 
 [node name="SubViewport" type="SubViewport" parent="pc" unique_id=1131155427]
+handle_input_locally = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="pc/SubViewport" unique_id=28535860]
 
