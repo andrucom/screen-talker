@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dkx6643a8g26h"]
+
+[ext_resource type="Script" uid="uid://bbpnicmkpjkal" path="res://scripts/titles.gd" id="1_mujcd"]
+
+[sub_resource type="FontVariation" id="FontVariation_l4ree"]
+variation_embolden = 0.8
+
+[sub_resource type="Theme" id="Theme_mujcd"]
+default_font = SubResource("FontVariation_l4ree")
+default_font_size = 20
+
+[node name="Titles" type="Control" unique_id=1645718241]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mujcd")
+
+[node name="Label" type="Label" parent="." unique_id=1921862168]
+layout_mode = 0
+offset_left = -482.0
+offset_top = 8.0
+offset_right = -130.0
+offset_bottom = 113.0
+theme = SubResource("Theme_mujcd")
+text = "CREATE BY:
+ANDREY CHUPIKOV"
+
+[node name="Label2" type="Label" parent="." unique_id=717585769]
+layout_mode = 0
+offset_left = -417.0
+offset_top = 96.0
+offset_right = -131.0
+offset_bottom = 201.0
+theme = SubResource("Theme_mujcd")
+text = "TECH SUPPORT:
+DADASKIS"

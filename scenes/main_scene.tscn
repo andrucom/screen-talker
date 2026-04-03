@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dlrvt7o6xr4hf" path="res://scripts/camera.gd" id="1_gubc5"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="2_rt2n2"]
 [ext_resource type="AudioStream" uid="uid://b8ojaytkwcra5" path="res://sounds/music/Prison.mp3" id="3_c16ls"]
+[ext_resource type="PackedScene" uid="uid://dkx6643a8g26h" path="res://scenes/Titles.tscn" id="3_rt2n2"]
 [ext_resource type="PackedScene" uid="uid://f71twh4xcph7" path="res://models/pc.glb" id="4_18nlu"]
 [ext_resource type="PackedScene" uid="uid://da3w6j321dfma" path="res://scenes/terminal.tscn" id="5_c1pb6"]
 
@@ -11,6 +12,60 @@ background_mode = 1
 background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
 glow_enabled = true
 glow_bloom = 0.6
+
+[sub_resource type="Animation" id="Animation_c16ls"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.16799986, 0.5348957, 0.65953636)]
+}
+
+[sub_resource type="Animation" id="Animation_rt2n2"]
+resource_name = "first"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1.5691684, 1),
+"update": 0,
+"values": [Vector3(-0.168, 0.535, 15.735), Vector3(-0.16799986, 0.5348957, 0.65953636)]
+}
+
+[sub_resource type="Animation" id="Animation_gubc5"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.16799986, 0.5348957, 0.65953636)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rt2n2"]
+_data = {
+&"RESET": SubResource("Animation_c16ls"),
+&"first": SubResource("Animation_rt2n2"),
+&"idle": SubResource("Animation_gubc5")
+}
 
 [node name="TestScene" type="Node3D" unique_id=818513904]
 
@@ -66,9 +121,15 @@ size_flags_vertical = 8
 texture = ExtResource("2_rt2n2")
 expand_mode = 1
 
+[node name="Titles" parent="Camera3D/CanvasLayer" unique_id=1645718241 instance=ExtResource("3_rt2n2")]
+
 [node name="audio_main" type="AudioStreamPlayer3D" parent="Camera3D" unique_id=1994723148]
 stream = ExtResource("3_c16ls")
 max_db = -13.413
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D" unique_id=369062694]
+libraries/ = SubResource("AnimationLibrary_rt2n2")
+autoplay = &"first"
 
 [node name="pc" parent="." unique_id=1262133902 instance=ExtResource("4_18nlu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2128653, 0, -0.49915546)
