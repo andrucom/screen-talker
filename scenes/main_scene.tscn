@@ -10,8 +10,16 @@
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
 background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+background_energy_multiplier = 0.0
 glow_enabled = true
 glow_bloom = 0.6
+fog_light_color = Color(0.16695908, 0.1851261, 0.21339452, 1)
+fog_light_energy = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 1.0
+volumetric_fog_albedo = Color(0.38939625, 0.37050807, 0.35627252, 1)
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_length = 28.49
 
 [sub_resource type="Animation" id="Animation_c16ls"]
 length = 0.001
@@ -39,7 +47,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1.5691684, 0.13869599),
 "update": 0,
 "values": [Vector3(-0.168, 0.535, 15.735), Vector3(-0.16799986, 0.5348957, 0.65953636)]
@@ -92,9 +100,10 @@ size = 0.735
 near = 0.001
 script = ExtResource("1_gubc5")
 shake_power = 0.001
-time_fov = 130.0
-fov_original = 70
-fov_min = 25
+time_fov = 160.0
+fov_original = 60
+fov_min = 10
+time_unfov = 2
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=77609382]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
