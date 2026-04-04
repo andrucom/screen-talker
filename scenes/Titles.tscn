@@ -31,6 +31,7 @@ text = "CREATE BY:
 ANDREY CHUPIKOV"
 
 [node name="Label2" type="Label" parent="." unique_id=717585769]
+visible = false
 layout_mode = 0
 offset_left = -417.0
 offset_top = 96.0
