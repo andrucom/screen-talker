@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bbpnicmkpjkal" path="res://scripts/titles.gd" id="1_mujcd"]
 
-[sub_resource type="FontVariation" id="FontVariation_l4ree"]
-variation_embolden = 0.8
+[sub_resource type="SystemFont" id="SystemFont_mujcd"]
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_mujcd"]
-default_font = SubResource("FontVariation_l4ree")
-default_font_size = 20
+default_font = SubResource("SystemFont_mujcd")
+default_font_size = 26
 
 [node name="Titles" type="Control" unique_id=1645718241]
 layout_mode = 3
@@ -19,16 +19,20 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mujcd")
+title_speed_time = 2.0
+title_time = 3
 
 [node name="Label" type="Label" parent="." unique_id=1921862168]
 layout_mode = 0
-offset_left = -482.0
-offset_top = 8.0
-offset_right = -130.0
-offset_bottom = 113.0
+offset_left = -176.0
+offset_top = -56.0
+offset_right = 176.0
+offset_bottom = 49.0
 theme = SubResource("Theme_mujcd")
-text = "CREATE BY:
+theme_override_colors/font_color = Color(0.08421566, 0.67958134, 3.4269095e-05, 1)
+text = "CREATED BY
 ANDREY CHUPIKOV"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=717585769]
 visible = false

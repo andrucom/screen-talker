@@ -16,11 +16,12 @@ var mouse_sensitivity = 0.01
 @export var time_fov = 5.0
 @export var fov_original = 48
 @export var fov_min = 20
-
+@export var time_unfov = 8
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
+	camera.fov = fov_original
 
 func _physics_process(delta: float) -> void:
 	rayfire_screen()
@@ -84,7 +85,7 @@ func rayfire_screen():
 			tween.tween_property(camera, "fov", fov_min, time_fov)
 	else:
 		var tween = create_tween()
-		tween.tween_property(camera, "fov", fov_original, time_fov/2)
+		tween.tween_property(camera, "fov", fov_original, time_unfov)
 		pass
 
 func rayfire():
