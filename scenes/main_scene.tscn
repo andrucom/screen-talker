@@ -85,18 +85,19 @@ light_volumetric_fog_energy = 1.901
 spot_range = 1.2102777
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=306765377]
-transform = Transform3D(1, 0, 0, 0, 0.96726775, 0.25375795, 0, -0.25375795, 0.96726775, -0.16799986, 0.5348957, 0.65953636)
+transform = Transform3D(1, 0, 0, 0, 0.93667215, 0.35020736, 0, -0.35020736, 0.93667215, -0.16799986, 0.5348957, 0.65953636)
 current = true
 fov = 47.337795
 size = 0.735
 near = 0.001
 script = ExtResource("1_gubc5")
-time_fov = 3.5
+shake_power = 0.001
+time_fov = 130.0
 fov_original = 70
 fov_min = 25
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=77609382]
-transform = Transform3D(1, 0, 0, 0, -4.4703484e-08, -0.99999994, 0, 0.99999994, -4.4703484e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
 target_position = Vector3(0, -10, 0)
 hit_back_faces = false
 debug_shape_custom_color = Color(0.40832946, 0.40832946, 0.40832946, 1)

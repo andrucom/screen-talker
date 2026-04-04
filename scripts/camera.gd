@@ -84,7 +84,7 @@ func rayfire_screen():
 			tween.tween_property(camera, "fov", fov_min, time_fov)
 	else:
 		var tween = create_tween()
-		tween.tween_property(camera, "fov", fov_original, time_fov)
+		tween.tween_property(camera, "fov", fov_original, time_fov/2)
 		pass
 
 func rayfire():

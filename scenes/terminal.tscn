@@ -4,16 +4,15 @@
 [ext_resource type="Script" uid="uid://1japkjf7q2ax" path="res://scripts/terminal.gd" id="1_sy66w"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
-variation_embolden = -2.0
+variation_embolden = -0.19
 spacing_glyph = -1
 
 [sub_resource type="Theme" id="Theme_vs6ym"]
-default_base_scale = 5.85
 default_font = SubResource("FontVariation_sy66w")
 default_font_size = 0
 
 [sub_resource type="FontVariation" id="FontVariation_m430i"]
-variation_embolden = -1.28
+variation_embolden = -0.03
 
 [sub_resource type="Theme" id="Theme_m430i"]
 resource_local_to_scene = true
@@ -38,45 +37,48 @@ color = Color(0, 0, 0, 1)
 
 [node name="LabelVER" type="Label" parent="." unique_id=1976182303]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 18.0
-offset_right = 172.0
-offset_bottom = 67.0
+offset_left = 105.0
+offset_top = 12.0
+offset_right = 167.0
+offset_bottom = 61.0
 scale = Vector2(0.6000049, 0.6000049)
 theme = SubResource("Theme_vs6ym")
-theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
+theme_override_font_sizes/font_size = 25
 text = "VER: "
 
 [node name="Label2" type="Label" parent="." unique_id=713904560]
 layout_mode = 0
-offset_left = 293.0
-offset_top = 18.600006
-offset_right = 333.0
-offset_bottom = 67.600006
+offset_left = 266.0
+offset_top = 12.600006
+offset_right = 342.0
+offset_bottom = 61.600006
 scale = Vector2(0.6000049, 0.6000049)
 theme = SubResource("Theme_vs6ym")
-theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
+theme_override_font_sizes/font_size = 25
 text = "TIME: "
 
 [node name="Label3" type="Label" parent="." unique_id=16358674]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 28.0
-offset_right = 712.0
+offset_right = 739.66095
 offset_bottom = 77.0
 scale = Vector2(0.6000049, 0.6000049)
 theme = SubResource("Theme_vs6ym")
 theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
-text = "_______________________________________________________________________________________________________________________________"
+text = "__________________________________________________________________________________________________________________________"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1355139261]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 43.0
-offset_right = 469.0
-offset_bottom = 440.0
+offset_right = 466.0
+offset_bottom = 418.0
 theme = SubResource("Theme_m430i")
 theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "Привет как дела... Тут чертовски одиноко... Надеюсб ты все [wave amp=50 freq=2]видишь[/wave]
 Hello
@@ -87,13 +89,15 @@ scroll_active = false
 scroll_following_visible_characters = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1281129917]
+clip_contents = false
 layout_mode = 0
 offset_left = 37.0
-offset_top = 440.0
+offset_top = 438.0
 offset_right = 479.0
-offset_bottom = 507.0
+offset_bottom = 505.0
 theme = SubResource("Theme_m430i")
-theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+theme_override_colors/default_color = Color(0.035471953, 0.291939, 0.032732375, 1)
+theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "1. Первый выбор
 2. Второй
