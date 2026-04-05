@@ -10,7 +10,6 @@
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
 background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
-background_energy_multiplier = 0.0
 glow_enabled = true
 glow_bloom = 0.6
 fog_light_color = Color(0.16695908, 0.1851261, 0.21339452, 1)
@@ -82,18 +81,18 @@ environment = SubResource("Environment_g7g4h")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment" unique_id=601029755]
 transform = Transform3D(0.86799085, -0.23780775, 0.43593496, 0, 0.87787426, 0.47889096, -0.49658006, -0.415673, 0.761987, 0.52495587, 0.5464707, 0.39497292)
-light_energy = 1.09
+light_energy = 2.446
 spot_range = 1.6058632
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment" unique_id=1893384897]
 transform = Transform3D(0.7446587, 0.61301357, -0.26400355, -0.16936973, 0.55614907, 0.8136415, 0.64559853, -0.561171, 0.51796716, -0.6061105, 1.0380086, 0.5418655)
 light_color = Color(0.89411765, 0.99215686, 0.84313726, 1)
-light_energy = 3.554
+light_energy = 5.543
 light_volumetric_fog_energy = 1.901
 spot_range = 1.2102777
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=306765377]
-transform = Transform3D(1, 0, 0, 0, 0.93667215, 0.35020736, 0, -0.35020736, 0.93667215, -0.16799986, 0.5348957, 0.65953636)
+transform = Transform3D(1, 0, 0, 0, 0.9836344, 0.18017578, 0, -0.18017578, 0.9836344, -0.16799986, 0.5348957, 0.65953636)
 current = true
 fov = 47.337795
 size = 0.735

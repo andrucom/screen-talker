@@ -1,17 +1,12 @@
 extends Control
 @onready var label = $Label
-@onready var label2 = $Label2
+@onready var label3 = $Label3
 @export var title_speed_time = 0.5
 @export var title_time = 1
 
 func _ready() -> void:
 	_animated(label, title_speed_time)
-	_animated(label2, title_speed_time)
-	pass # Replace with function body.
-
-
-func _process(delta: float) -> void:
-	pass
+	_animated(label3, title_speed_time)
 
 func _animated(label, time):
 	label.visible_ratio = 0.0
