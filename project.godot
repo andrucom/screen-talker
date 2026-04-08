@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GTime="*uid://cn5bpibbsnyhf"
-AnimText="*uid://dsuyfuf6r7emq"
 
 [display]
 

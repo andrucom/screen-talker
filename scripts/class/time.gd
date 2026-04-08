@@ -1,6 +1,5 @@
 extends Node
 
-
 func delay(time: float):
 	await get_tree().create_timer(time).timeout
 
