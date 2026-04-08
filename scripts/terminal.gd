@@ -1,4 +1,5 @@
 extends Control
+
 @onready var labelR = $RichTextLabel
 @onready var ver = $LabelVER
 @onready var label2 = $Label2
@@ -6,12 +7,12 @@ const VERSION_DATA = preload("res://version.tres")
 
 func _ready() -> void:
 	ver.text ="VER:  " + VERSION_DATA.version
-	_animated_text(labelR,3)
+	
+	
 
 
 func _process(delta: float) -> void:
 	label2.text = "TIME: " + Time.get_time_string_from_system()
-	pass
 
 
 func _animated_text(label, time):

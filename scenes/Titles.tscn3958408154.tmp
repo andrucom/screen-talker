@@ -21,6 +21,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mujcd")
+title_time = 3
 
 [node name="Label3" type="Label" parent="." unique_id=1854885271]
 layout_mode = 1
