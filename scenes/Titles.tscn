@@ -8,6 +8,13 @@
 default_font = ExtResource("2_r2k8t")
 default_font_size = 26
 
+[sub_resource type="FontVariation" id="FontVariation_40gi5"]
+variation_embolden = 0.96
+spacing_top = -4
+
+[sub_resource type="Theme" id="Theme_nxdxc"]
+default_font = SubResource("FontVariation_40gi5")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxdxc"]
 shader = ExtResource("3_40gi5")
 
@@ -27,23 +34,25 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -446.0
+offset_top = -29.0
+offset_right = 483.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_mujcd")
 theme_override_colors/font_color = Color(0.08421566, 0.67958134, 3.4269095e-05, 1)
-theme_override_constants/outline_size = 13
-theme_override_constants/shadow_outline_size = 49
+theme_override_constants/shadow_outline_size = 1
 theme_override_font_sizes/font_size = 83
 text = "SCREEN TALKER"
-horizontal_alignment = 1
 
 [node name="LabelAUTHOR" type="Label" parent="." unique_id=1921862168]
 layout_mode = 0
 offset_left = -176.0
-offset_top = 193.0
+offset_top = 84.0
 offset_right = 176.0
-offset_bottom = 298.0
-theme = SubResource("Theme_mujcd")
+offset_bottom = 189.0
+theme = SubResource("Theme_nxdxc")
 theme_override_colors/font_color = Color(0.08421566, 0.67958134, 3.4269095e-05, 1)
 theme_override_font_sizes/font_size = 15
 text = "CREATED BY

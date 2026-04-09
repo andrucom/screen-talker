@@ -9,6 +9,7 @@ extends Control
 @onready var progressbar = $logo/ProgressBar
 @onready var path =  "res://text/text_ru.json" 
 
+
 var DS
 
 const VERSION_DATA = preload("res://version.tres")
@@ -39,12 +40,17 @@ func start():
 	DS = DialogSystem.new()
 	LabelMAIN.add_child(DS)
 	
+	await GTime.delay(5.5)
+	logo.visible = true
+	Globals.pc_ligh = Color("green")
+	Globals.dot = true
+	
 	# Screen logo
-	await GTime.delay(6)
+	await GTime.delay(3)
 	ps.visible = false
 	progressbar.visible = true
 	var tween = create_tween()
 	tween.tween_property(progressbar,"value", 100, 1)
-	await GTime.delay(1.5)
+	await GTime.delay(2.5)
 	logo.visible = false
 	main.visible = true

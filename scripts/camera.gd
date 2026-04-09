@@ -17,7 +17,11 @@ var mouse_sensitivity = 0.01
 @export var fov_original = 48
 @export var fov_min = 20
 @export var time_unfov = 8
+
+
 func _ready() -> void:
+
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
@@ -25,7 +29,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	rayfire_screen()
-
+	$CanvasLayer/Dot.visible = Globals.dot
+	
 
 
 #Следование камеры за мышкой 

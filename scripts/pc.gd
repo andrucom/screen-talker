@@ -1,16 +1,21 @@
 extends Node3D
 @onready var audio = $audio_pc
+@onready var pc_light = $power_light
 
 var pressed_handled = {}
-var push_power = 0.005
+const push_power = 0.005
 var sound = preload("res://sounds/button.mp3")
 var sound_space = preload("res://sounds/space.mp3")
 var sound_enter = preload("res://sounds/enter.mp3")
-var power = true 
+var power = false
 
 
-# Called when the node enters the scene tree for the first time.
+func _process(delta: float) -> void:
+	await GTime.delay(1)
+	$power_light.light_color = Globals.pc_ligh
+
 func _ready() -> void:
+	$power_light.light_color = Globals.pc_ligh
 	
 	var viewport = $SubViewport
 	viewport.set_update_mode(SubViewport.CLEAR_MODE_ONCE)
@@ -36,13 +41,16 @@ func _input(event: InputEvent) -> void:
 		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
 		pressed_handled[event.keycode] = false
 
-func interact(name):
-	if name == "comp_button":
-		power = !power
-		if power == true:
-			$power_light.light_color = Color.GREEN
-		else:
-			$power_light.light_color = Color.RED
+# функция вкл/выкл - пока не нужно
+#func interact(name):
+	#if name == "comp_button":
+		#power = !power
+		#if power == true:
+			#$pc_light.light_color = Color.GREEN
+			#Globals.pc_ligh = Color.GREEN
+		#else:
+			#$pc_light.light_color = Color.RED
+			#Globals.pc_ligh = Color.RED
 
 #--------------------#
 # Функции для самого процесса нажатия и отжатия 

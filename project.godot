@@ -14,11 +14,13 @@ config/name="Screen talker"
 config/version="pre-pre-alpha"
 run/main_scene="uid://bnjohlrkoulqu"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=60
 config/icon="uid://ce2iuhns0q4he"
 
 [autoload]
 
 GTime="*uid://cn5bpibbsnyhf"
+Globals="*uid://c0wnhcn1uksny"
 
 [display]
 
