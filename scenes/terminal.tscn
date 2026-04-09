@@ -9,7 +9,9 @@ spacing_glyph = -1
 
 [sub_resource type="Theme" id="Theme_vs6ym"]
 default_font = SubResource("FontVariation_sy66w")
-default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy66w"]
+bg_color = Color(0.08421566, 0.67958134, 3.4269095e-05, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_m430i"]
 variation_embolden = -0.03
@@ -35,7 +37,44 @@ offset_right = 512.0
 offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
 
+[node name="logo" type="Control" parent="." unique_id=782673511]
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="placeholder" type="Label" parent="logo" unique_id=1750752472]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -59.999985
+offset_right = 487.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6000049, 0.6000049)
+theme = SubResource("Theme_vs6ym")
+theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
+theme_override_font_sizes/font_size = 100
+text = "PLACEHOLDER"
+
+[node name="ProgressBar" type="ProgressBar" parent="logo" unique_id=1555317117]
+visible = false
+layout_mode = 0
+offset_left = 105.0
+offset_top = 221.0
+offset_right = 407.0
+offset_bottom = 257.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_sy66w")
+step = 5.0
+value = 5.0
+show_percentage = false
+
 [node name="main" type="Control" parent="." unique_id=1465256369]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

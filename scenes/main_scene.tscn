@@ -10,6 +10,9 @@
 [sub_resource type="Environment" id="Environment_g7g4h"]
 background_mode = 1
 background_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+tonemap_mode = 3
+tonemap_exposure = 1.5
+tonemap_white = 3.2
 glow_enabled = true
 glow_bloom = 0.6
 fog_light_color = Color(0.16695908, 0.1851261, 0.21339452, 1)
@@ -141,7 +144,7 @@ libraries/ = SubResource("AnimationLibrary_rt2n2")
 autoplay = &"first"
 
 [node name="pc" parent="." unique_id=1262133902 instance=ExtResource("4_18nlu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2128653, 0, -0.49915546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22348064, 0, -0.49915546)
 
 [node name="audio_pc" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3328485, 0.10863447, 0.91339797)
