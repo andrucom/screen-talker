@@ -51,7 +51,7 @@ func push_button(node: String):
 		if node == "space":
 			audio.stream = sound_space
 			audio.pitch_scale = randf_range(1,1.2)
-			audio.volume_db = -20
+			audio.volume_db = -35
 			audio.play()
 		elif node == "enter":
 			audio.stream = sound_enter
