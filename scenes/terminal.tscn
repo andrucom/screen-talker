@@ -35,7 +35,12 @@ offset_right = 512.0
 offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
 
-[node name="LabelVER" type="Label" parent="." unique_id=1976182303]
+[node name="main" type="Control" parent="." unique_id=1465256369]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelVER" type="Label" parent="main" unique_id=1976182303]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 12.0
@@ -47,7 +52,7 @@ theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
 theme_override_font_sizes/font_size = 25
 text = "VER: "
 
-[node name="Label2" type="Label" parent="." unique_id=713904560]
+[node name="LabelTIME" type="Label" parent="main" unique_id=713904560]
 layout_mode = 0
 offset_left = 266.0
 offset_top = 12.600006
@@ -59,18 +64,18 @@ theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
 theme_override_font_sizes/font_size = 25
 text = "TIME: "
 
-[node name="Label3" type="Label" parent="." unique_id=16358674]
+[node name="LabelDOWN" type="Label" parent="main" unique_id=16358674]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 28.0
-offset_right = 739.66095
+offset_right = 741.0
 offset_bottom = 77.0
 scale = Vector2(0.6000049, 0.6000049)
 theme = SubResource("Theme_vs6ym")
 theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
 text = "__________________________________________________________________________________________________________________________"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1355139261]
+[node name="LabelMAIN" type="RichTextLabel" parent="main" unique_id=1355139261]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 43.0
@@ -88,7 +93,7 @@ bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla b
 scroll_active = false
 scroll_following_visible_characters = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1281129917]
+[node name="LabelCHOISE" type="RichTextLabel" parent="main" unique_id=1281129917]
 clip_contents = false
 layout_mode = 0
 offset_left = 37.0

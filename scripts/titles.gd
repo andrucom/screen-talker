@@ -1,13 +1,11 @@
 extends Control
-@onready var label = $Label
-@onready var label3 = $Label3
+@onready var LabelGAME = $LabelGAME
+@onready var LabelAUTHOR = $LabelAUTHOR
 @export var title_speed_time = 4
 
-
-
 func _ready() -> void:
-	_animated(label,title_speed_time)
-	_animated(label3,title_speed_time)
+	_animated(LabelGAME,title_speed_time)
+	_animated(LabelAUTHOR,title_speed_time)
 	
 func _animated(label, time):
 	label.visible_ratio = 0.0
