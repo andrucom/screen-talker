@@ -7,7 +7,7 @@ extends Control
 @onready var logo = $logo
 @onready var ps = $logo/placeholder
 @onready var progressbar = $logo/ProgressBar
-@onready var path =  "res://text/text_ru.json"
+@onready var path =  "res://text/text_ru.json" 
 
 var DS
 
