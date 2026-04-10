@@ -19,7 +19,6 @@ config/icon="uid://ce2iuhns0q4he"
 
 [autoload]
 
-GTime="*uid://cn5bpibbsnyhf"
 Globals="*uid://c0wnhcn1uksny"
 
 [display]

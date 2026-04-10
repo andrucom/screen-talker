@@ -19,7 +19,7 @@ const VERSION_DATA = preload("res://version.tres")
 func _ready() -> void:
 	start()
 	
-	await  GTime.delay(11)
+	await GTime.delay(11)
 	
 	LabelMAIN.text = DS.get_text_by_id("main_start2")
 	TextAnimator._typeware(LabelMAIN,2)

@@ -1,7 +1,11 @@
+class_name GTime
 extends Node
 
-func delay(time: float):
-	await get_tree().create_timer(time).timeout
+
+static func delay(time: float):
+	var tree = Engine.get_main_loop()
+	if tree:
+		await tree.create_timer(time).timeout
 
 
 #extends Node
