@@ -29,37 +29,18 @@ func _ready() -> void:
 	TextAnimator._typeware(LabelCHOISE, 2)
 	
 	await GTime.delay(2)
-	choise_2(game_toggle.bind(), show_dialog.bind("_clear","_clear"))
+	DS.choise_2(game_toggle.bind(), DS.show_dialog.bind(LabelMAIN,"_clear"))
 
 func _process(delta: float) -> void:
 	LabelTIME.text = "TIME: " + Time.get_time_string_from_system()
 
-func show_dialog(main_dialog, choise_dialog):
-	LabelMAIN.text = DS.get_text_by_id(main_dialog)
-	TextAnimator._typeware(LabelMAIN, 2)
-	LabelCHOISE.text = DS.get_text_by_id(choise_dialog)
-	TextAnimator._typeware(LabelCHOISE, 2)
 
-func choise_2(v1,v2):
-	choise_stat = true
-	Globals.choise = ""
-	while choise_stat != false:
-		match Globals.choise:
-			"1": 
-				v1.call()
-				choise_stat = false
-			"2":
-				v2.call()
-				choise_stat = false
-			_:
-				await  GTime.delay(1)		
 
 func game_toggle():
 	LabelMAIN.visible = false
 	LabelCHOISE.visible = false
 	
 	game.visible = true
-
 
 func start():
 	# init ver

@@ -1,8 +1,11 @@
 class_name DialogSystem
 extends Node
 
+
 var path =  "res://text/text_ru.json"
 var dialogues_data = []
+
+var choise_stat = false
 
 func _enter_tree() -> void:
 	load_dialogues(path)
@@ -37,4 +40,23 @@ func get_text_by_id(id: String) -> String:
 		if dialogue.get("id") == id:
 			return dialogue.get("text", "")
 	return ""  # Если ID не найден
+
+# For label - text
+func show_dialog(label, dialoge):
+	label.text = get_text_by_id(dialoge)
+	TextAnimator._typeware(label, 2)
 	
+# For choise 2 variant + func
+func choise_2(v1,v2):
+	choise_stat = true
+	Globals.choise = ""
+	while choise_stat != false:
+		match Globals.choise:
+			"1": 
+				v1.call()
+				choise_stat = false
+			"2":
+				v2.call()
+				choise_stat = false
+			_:
+				await  GTime.delay(1)		
