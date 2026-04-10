@@ -22,9 +22,9 @@ func _ready() -> void:
 	await  GTime.delay(11)
 	
 	LabelMAIN.text = DS.get_text_by_id("main_start2")
-	_animated_text(LabelMAIN, 2)
+	TextAnimator._typeware(LabelMAIN,2)
 	LabelCHOISE.text = DS.get_text_by_id("choise_start2")
-	_animated_text(LabelCHOISE, 2)
+	TextAnimator._typeware(LabelCHOISE, 2)
 	
 	await GTime.delay(2)
 	choise_2(show_dialog.bind("main_test", "choise_test"), show_dialog.bind("_clear","clear"))
@@ -33,16 +33,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	LabelTIME.text = "TIME: " + Time.get_time_string_from_system()
 
-func _animated_text(label, time):
-	label.visible_ratio = 0.0
-	var tween = create_tween()
-	tween.tween_property(label,"visible_ratio",1,time)
-
 func show_dialog(main_dialog, choise_dialog):
 	LabelMAIN.text = DS.get_text_by_id(main_dialog)
-	_animated_text(LabelMAIN, 2)
+	TextAnimator._typeware(LabelMAIN, 2)
 	LabelCHOISE.text = DS.get_text_by_id(choise_dialog)
-	_animated_text(LabelCHOISE, 2)
+	TextAnimator._typeware(LabelCHOISE, 2)
 
 func choise_2(v1,v2):
 	choise_stat = true
