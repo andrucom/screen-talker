@@ -37,3 +37,4 @@ func get_text_by_id(id: String) -> String:
 		if dialogue.get("id") == id:
 			return dialogue.get("text", "")
 	return ""  # Если ID не найден
+	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://coe1ka3ll3mlr" path="res://shaders/terminal.gdshader" id="1_m430i"]
 [ext_resource type="Script" uid="uid://1japkjf7q2ax" path="res://scripts/terminal.gd" id="1_sy66w"]
+[ext_resource type="PackedScene" uid="uid://hpaedd25oa4u" path="res://scenes/game.tscn" id="2_vs6ym"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
 variation_embolden = -0.19
@@ -77,7 +78,6 @@ value = 5.0
 show_percentage = false
 
 [node name="main" type="Control" parent="." unique_id=1465256369]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -106,7 +106,7 @@ theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
 theme_override_font_sizes/font_size = 25
 text = "TIME: "
 
-[node name="LabelDOWN" type="Label" parent="main" unique_id=16358674]
+[node name="Label_" type="Label" parent="main" unique_id=16358674]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 28.0
@@ -153,6 +153,11 @@ text = "1. Первый выбор
 "
 scroll_active = false
 scroll_following_visible_characters = true
+
+[node name="Game" parent="." unique_id=1736054907 instance=ExtResource("2_vs6ym")]
+visible = false
+layout_mode = 1
+offset_right = -512.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=11385505]
 material = SubResource("ShaderMaterial_dhnb1")

@@ -1,17 +1,19 @@
 extends Control
 
+@onready var game = $Game
 @onready var main = $main
 @onready var LabelMAIN = $main/LabelMAIN
 @onready var LabelVER = $main/LabelVER
 @onready var LabelTIME = $main/LabelTIME
+@onready var Label_ = $main/Label_
 @onready var LabelCHOISE = $main/LabelCHOISE
 @onready var logo = $logo
 @onready var ps = $logo/placeholder
 @onready var progressbar = $logo/ProgressBar
 @onready var path =  "res://text/text_ru.json" 
+
+
 var choise_stat = false
-
-
 var DS
 
 const VERSION_DATA = preload("res://version.tres")
@@ -27,9 +29,8 @@ func _ready() -> void:
 	TextAnimator._typeware(LabelCHOISE, 2)
 	
 	await GTime.delay(2)
-	choise_2(show_dialog.bind("main_test", "choise_test"), show_dialog.bind("_clear","clear"))
-	
-	
+	choise_2(game_toggle.bind(), show_dialog.bind("_clear","_clear"))
+
 func _process(delta: float) -> void:
 	LabelTIME.text = "TIME: " + Time.get_time_string_from_system()
 
@@ -53,9 +54,19 @@ func choise_2(v1,v2):
 			_:
 				await  GTime.delay(1)		
 
+func game_toggle():
+	LabelMAIN.visible = false
+	LabelCHOISE.visible = false
+	
+	game.visible = true
+
+
 func start():
 	# init ver
 	LabelVER.text ="VER:  " + VERSION_DATA.version
+	
+	main.visible = false
+	game.visible = false
 	
 	# init DialogSystem
 	DS = DialogSystem.new()
