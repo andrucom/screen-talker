@@ -32,15 +32,21 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	# Push button
 	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
 		print("key: ", OS.get_keycode_string(event.keycode).to_lower())
 		push_button(OS.get_keycode_string(event.keycode).to_lower())
 		pressed_handled[event.keycode] = true
-		
+	
+	# Unpush button
 	if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
 		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
 		pressed_handled[event.keycode] = false
-
+	
+	# Global choise
+	if event is InputEventKey and event.is_pressed():
+		Globals.choise = OS.get_keycode_string(event.keycode).to_lower()
+	
 # функция вкл/выкл - пока не нужно
 #func interact(name):
 	#if name == "comp_button":

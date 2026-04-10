@@ -1,11 +1,26 @@
 [
 	{
-		"id": "start",
+		"id": "_clear",
+		"text": " "
+	},
+	{
+		"id": "main_start",
 		"text": "test text"
 	},
 	{
-		"id": "start2",
-		"text": "test sadassd"
+		"id": "main_start2",
+		"text": "Привет! В этой симуляции нам надо проверить активность мозга...\nТебе нужно будет заработать 1 000 000 очков для окончания симуляции"
+	},
+	{
+		"id": "choise_start2", 
+		"text": "1. Приступить\n2. Отказаться"
+	},
+	{
+		"id": "main_test",
+		"text": "test"
+	},
+	{
+		"id": "choise_test", 
+		"text": "1. Окей\n2. Не окей"
 	}
-	
 ]
