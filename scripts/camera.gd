@@ -20,8 +20,6 @@ var mouse_sensitivity = 0.01
 
 
 func _ready() -> void:
-
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
