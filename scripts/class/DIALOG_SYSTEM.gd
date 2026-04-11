@@ -49,9 +49,9 @@ func show_dialog(label, dialoge):
 # For choise 2 variant + func
 func choise_2(v1,v2):
 	choise_stat = true
-	Globals.choise = ""
+	G.choise = ""
 	while choise_stat != false:
-		match Globals.choise:
+		match G.choise:
 			"1": 
 				v1.call()
 				choise_stat = false

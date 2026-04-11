@@ -55,8 +55,8 @@ func start():
 	
 	await GTime.delay(5.5)
 	logo.visible = true
-	Globals.pc_ligh = Color("green")
-	Globals.dot = true
+	G.pc_ligh = Color("green")
+	G.dot = true
 	
 	# Screen logo
 	await GTime.delay(3)

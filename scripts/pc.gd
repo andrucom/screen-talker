@@ -12,7 +12,7 @@ var power = false
 
 func _process(delta: float) -> void:
 	await GTime.delay(1)
-	$power_light.light_color = Globals.pc_ligh
+	$power_light.light_color = G.pc_ligh
 
 func _ready() -> void:
 	_init_screen()
@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 	
 	# Global choise
 	if event is InputEventKey and event.is_pressed():
-		Globals.choise = OS.get_keycode_string(event.keycode).to_lower()
+		G.choise = OS.get_keycode_string(event.keycode).to_lower()
 	
 # функция вкл/выкл - пока не нужно
 #func interact(name):
@@ -39,10 +39,10 @@ func _input(event: InputEvent) -> void:
 		#power = !power
 		#if power == true:
 			#$pc_light.light_color = Color.GREEN
-			#Globals.pc_ligh = Color.GREEN
+			#G.pc_ligh = Color.GREEN
 		#else:
 			#$pc_light.light_color = Color.RED
-			#Globals.pc_ligh = Color.RED
+			#G.pc_ligh = Color.RED
 
 #--------------------#
 # Функции для самого процесса нажатия и отжатия 

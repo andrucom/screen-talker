@@ -18,7 +18,7 @@ func _ready() -> void:
 	#main.visible = false
 	
 	LabelRULE.text = DS.get_text_by_id("rule")
-	LabelMAIN.text = "score: " + str(Globals.score)
+	LabelMAIN.text = "score: " + str(G.score)
 
 func _physics_process(delta: float) -> void:
 
@@ -26,11 +26,11 @@ func _physics_process(delta: float) -> void:
 	update_text()
 
 func update_text():
-	LabelMAIN.text = "score: " + str(Globals.score)
+	LabelMAIN.text = "score: " + str(G.score)
 
 func score_add():
 	if add == false:
 		add = true
 		await  GTime.delay(1)
-		Globals.score += 1
+		G.score += 1
 		add = false

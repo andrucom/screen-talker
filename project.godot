@@ -19,7 +19,7 @@ config/icon="uid://ce2iuhns0q4he"
 
 [autoload]
 
-Globals="*uid://c0wnhcn1uksny"
+G="*uid://c0wnhcn1uksny"
 
 [display]
 

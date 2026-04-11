@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	rayfire_screen()
-	$CanvasLayer/Dot.visible = Globals.dot
+	$CanvasLayer/Dot.visible = G.dot
 	
 
 

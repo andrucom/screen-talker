@@ -103,7 +103,7 @@ size = 0.735
 near = 0.001
 script = ExtResource("1_gubc5")
 shake_power = 0.002
-time_fov = 160.0
+time_fov = 100.0
 fov_original = 50
 time_unfov = 2
 

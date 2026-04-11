@@ -79,8 +79,8 @@ show_percentage = false
 
 [node name="main" type="Control" parent="." unique_id=1465256369]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 512.0
+offset_bottom = 512.0
 
 [node name="LabelVER" type="Label" parent="main" unique_id=1976182303]
 layout_mode = 0
