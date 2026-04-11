@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hpaedd25oa4u"]
 
-[ext_resource type="Script" uid="uid://crv4haeoe42ak" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://crv4haeoe42ak" path="res://scripts/game.gd" id="1_uwrxv"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
 variation_embolden = -0.19
