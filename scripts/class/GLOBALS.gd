@@ -5,3 +5,5 @@ var dot = false
 var choise = ""
 
 var score = 0
+var multiplayer_1 = 1.0
+var cost_multiplayer_1 = 1

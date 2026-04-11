@@ -102,7 +102,7 @@ fov = 47.337795
 size = 0.735
 near = 0.001
 script = ExtResource("1_gubc5")
-shake_power = 0.002
+shake_power = 0.001
 time_fov = 100.0
 fov_original = 50
 time_unfov = 2
@@ -160,3 +160,5 @@ omni_range = 0.052564356
 [node name="CanvasLayer" type="CanvasLayer" parent="pc/SubViewport" unique_id=28535860]
 
 [node name="Terminal" parent="pc/SubViewport/CanvasLayer" unique_id=204974278 instance=ExtResource("5_c1pb6")]
+
+[connection signal="input_connect" from="pc" to="pc/SubViewport/CanvasLayer/Terminal" method="_on_pc_input_connect"]

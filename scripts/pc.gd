@@ -8,7 +8,7 @@ var sound = preload("res://sounds/button.mp3")
 var sound_space = preload("res://sounds/space.mp3")
 var sound_enter = preload("res://sounds/enter.mp3")
 var power = false
-
+signal input_connect()
 
 func _process(delta: float) -> void:
 	await GTime.delay(1)
@@ -16,6 +16,10 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	_init_screen()
+	
+	#var game = $SubViewport/CanvasLayer/Terminal/Game
+	#game.input_connect.connect()
+	
 
 func _input(event: InputEvent) -> void:
 	# Push button
@@ -28,6 +32,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
 		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
 		pressed_handled[event.keycode] = false
+		input_connect.emit()
 	
 	# Global choise
 	if event is InputEventKey and event.is_pressed():
