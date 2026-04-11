@@ -15,21 +15,7 @@ func _process(delta: float) -> void:
 	$power_light.light_color = Globals.pc_ligh
 
 func _ready() -> void:
-	$power_light.light_color = Globals.pc_ligh
-	
-	var viewport = $SubViewport
-	viewport.set_update_mode(SubViewport.CLEAR_MODE_ONCE)
-	
-	var material: = StandardMaterial3D.new()
-	material.albedo_texture = viewport.get_texture()
-	material.emission_enabled = true
-	material.emission_texture = viewport.get_texture()
-	material.emission_operator = BaseMaterial3D.EMISSION_OP_MULTIPLY
-	material.emission = Color.WHITE
-	material.emission_intensity = 2.0;
-	material.emission_energy_multiplier = 2.0;
-	get_node("screen").material_override = material
-
+	_init_screen()
 
 func _input(event: InputEvent) -> void:
 	# Push button
@@ -60,6 +46,21 @@ func _input(event: InputEvent) -> void:
 
 #--------------------#
 # Функции для самого процесса нажатия и отжатия 
+
+func _init_screen():
+	var viewport = $SubViewport
+	viewport.set_update_mode(SubViewport.CLEAR_MODE_ONCE)
+	
+	var material: = StandardMaterial3D.new()
+	material.albedo_texture = viewport.get_texture()
+	material.emission_enabled = true
+	material.emission_texture = viewport.get_texture()
+	material.emission_operator = BaseMaterial3D.EMISSION_OP_MULTIPLY
+	material.emission = Color.WHITE
+	material.emission_intensity = 2.0;
+	material.emission_energy_multiplier = 2.0;
+	get_node("screen").material_override = material
+	
 func push_button(node: String):
 	if get_node(node) != null:
 		if node == "space":
