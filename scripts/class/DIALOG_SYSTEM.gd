@@ -47,16 +47,28 @@ func show_dialog(label, dialoge):
 	TextAnimator._typeware(label, 2)
 	
 # For choise 2 variant + func
-func choise_2(v1,v2):
+
+func choise_2(...args):
 	choise_stat = true
 	G.choise = ""
-	while choise_stat != false:
-		match G.choise:
-			"1": 
-				v1.call()
-				choise_stat = false
-			"2":
-				v2.call()
-				choise_stat = false
-			_:
-				await  GTime.delay(1)		
+	
+	while choise_stat == true:
+		if G.choise.is_valid_int() and int(G.choise)-1 < args.size() and int(G.choise)-1 >= 0:
+			print(">>> Da")
+			args[int(G.choise)-1].call()
+			choise_stat = false
+		await GTime.delay(1)   # <-- Этой строки не хватало
+
+#func choise_2(v1,v2):
+	#choise_stat = true
+	#G.choise = ""
+	#while choise_stat != false:
+		#match G.choise:
+			#"1": 
+				#v1.call()
+				#choise_stat = false
+			#"2":
+				#v2.call()
+				#choise_stat = false
+			#_:
+				#await  GTime.delay(1)		
