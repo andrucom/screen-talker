@@ -4,7 +4,7 @@ extends Control
 @onready var main = $main
 @onready var LabelRULE = $main/LabelRULE
 @onready var LabelMAIN = $main/LabelMAIN
-@onready var LabelCHOISE = $main/LabelCHOISE
+@onready var LabelCHOICE = $main/LabelCHOICE
 
 
 var DS = DialogSystem.new()
@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	LabelRULE.text = DS.get_text_by_id("rule")
 	LabelMAIN.text = "score: " + str(G.score)
-	LabelCHOISE = DS.get_text_by_id("choise_shop")
+	LabelCHOICE = DS.get_text_by_id("choice_shop")
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -32,7 +32,7 @@ func update_text():
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_released():
-		DS.choise_2(upgrade(),upgrade())
+		DS.choice(upgrade(),upgrade())
 		score_add()
 		update_text()
 

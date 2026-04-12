@@ -34,9 +34,9 @@ func _input(event: InputEvent) -> void:
 		pressed_handled[event.keycode] = false
 		input_connect.emit()
 	
-	# Global choise
+	# Global choice
 	if event is InputEventKey and event.is_pressed():
-		G.choise = OS.get_keycode_string(event.keycode).to_lower()
+		G.choice = OS.get_keycode_string(event.keycode).to_lower()
 	
 # функция вкл/выкл - пока не нужно
 #func interact(name):

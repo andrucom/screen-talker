@@ -92,7 +92,7 @@ bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla b
 scroll_active = false
 scroll_following_visible_characters = true
 
-[node name="LabelCHOISE" type="RichTextLabel" parent="main" unique_id=1641525800]
+[node name="LabelCHOICE" type="RichTextLabel" parent="main" unique_id=1641525800]
 clip_contents = false
 layout_mode = 0
 offset_left = 37.0

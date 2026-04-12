@@ -5,7 +5,7 @@ extends Node
 var path =  "res://text/text_ru.json"
 var dialogues_data = []
 
-var choise_stat = false
+var _stat = false
 
 func _enter_tree() -> void:
 	load_dialogues(path)
@@ -46,29 +46,29 @@ func show_dialog(label, dialoge):
 	label.text = get_text_by_id(dialoge)
 	TextAnimator._typeware(label, 2)
 	
-# For choise 2 variant + func
+# For choice 2 variant + func
 
-func choise_2(...args):
-	choise_stat = true
-	G.choise = ""
+func choice(...args):
+	_stat = true
+	G.choice = ""
 	
-	while choise_stat == true:
-		if G.choise.is_valid_int() and int(G.choise)-1 < args.size() and int(G.choise)-1 >= 0:
+	while _stat == true:
+		if G.choice.is_valid_int() and int(G.choice)-1 < args.size() and int(G.choice)-1 >= 0:
 			print(">>> Da")
-			args[int(G.choise)-1].call()
-			choise_stat = false
-		await GTime.delay(1)   # <-- Этой строки не хватало
+			args[int(G.choice)-1].call()
+			_stat = false
+		await GTime.delay(0.1)
 
-#func choise_2(v1,v2):
-	#choise_stat = true
-	#G.choise = ""
-	#while choise_stat != false:
-		#match G.choise:
+#func choice(v1,v2):
+	#_stat = true
+	#G.choice = ""
+	#while _stat != false:
+		#match G.choice:
 			#"1": 
 				#v1.call()
-				#choise_stat = false
+				#_stat = false
 			#"2":
 				#v2.call()
-				#choise_stat = false
+				#_stat = false
 			#_:
 				#await  GTime.delay(1)		

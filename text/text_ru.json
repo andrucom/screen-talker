@@ -17,7 +17,7 @@
 	},
 	
 	{
-		"id": "choise_start2", 
+		"id": "choice_start2", 
 		"text": "1. Приступить\n2. Отказаться"
 	},
 	
@@ -27,11 +27,11 @@
 		"text": "test"
 	},
 	{
-		"id": "choise_test", 
+		"id": "choice_test", 
 		"text": "1. Окей\n2. Не окей"
 	},
 	{
-		"id": "choise_shop",
+		"id": "choice_shop",
 		"text": "1. Купить улучшение\n2. Сбросить улучшение, но увеличить его ценность"
 	},
 
