@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://hpaedd25oa4u"]
+
+[ext_resource type="Script" uid="uid://crv4haeoe42ak" path="res://scripts/game.gd" id="1_uwrxv"]
+
+[sub_resource type="FontVariation" id="FontVariation_sy66w"]
+variation_embolden = -0.19
+spacing_glyph = -1
+
+[sub_resource type="Theme" id="Theme_8cj0n"]
+default_font = SubResource("FontVariation_sy66w")
+
+[sub_resource type="FontVariation" id="FontVariation_m430i"]
+variation_embolden = -0.03
+
+[sub_resource type="Theme" id="Theme_uwrxv"]
+resource_local_to_scene = true
+default_font = SubResource("FontVariation_m430i")
+default_font_size = 12
+
+[sub_resource type="Theme" id="Theme_yqjtg"]
+resource_local_to_scene = true
+default_font = SubResource("FontVariation_m430i")
+default_font_size = 12
+
+[node name="Game" type="Control" unique_id=1736054907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwrxv")
+
+[node name="dev" type="Control" parent="." unique_id=628574302]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="background" type="ColorRect" parent="dev" unique_id=1500157759]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+
+[node name="LabelDOWN" type="Label" parent="dev" unique_id=407739095]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 28.0
+offset_right = 741.0
+offset_bottom = 77.0
+scale = Vector2(0.6000049, 0.6000049)
+theme = SubResource("Theme_8cj0n")
+theme_override_colors/font_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+text = "__________________________________________________________________________________________________________________________"
+
+[node name="main" type="Control" parent="." unique_id=585649455]
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="LabelRULE" type="RichTextLabel" parent="main" unique_id=2132714677]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 43.0
+offset_right = 466.0
+offset_bottom = 103.0
+theme = SubResource("Theme_uwrxv")
+theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "ТУТ у нас правила бла бла "
+scroll_active = false
+scroll_following_visible_characters = true
+
+[node name="LabelMAIN" type="RichTextLabel" parent="main" unique_id=993399369]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 120.0
+offset_right = 466.0
+offset_bottom = 477.0
+theme = SubResource("Theme_uwrxv")
+theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Привет как дела... Тут чертовски одиноко... Надеюсб ты все [wave amp=50 freq=2]видишь[/wave]
+Hello
+И не подумай, что тут что-то [shake rate=250 level=20]не так[/shake]
+
+bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla "
+scroll_active = false
+scroll_following_visible_characters = true
+
+[node name="LabelCHOICE" type="RichTextLabel" parent="main" unique_id=1641525800]
+clip_contents = false
+layout_mode = 0
+offset_left = 37.0
+offset_top = 438.0
+offset_right = 479.0
+offset_bottom = 505.0
+theme = SubResource("Theme_yqjtg")
+theme_override_colors/default_color = Color(0.035471953, 0.291939, 0.032732375, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "1. Первый выбор
+2. Второй
+3. Да я ничего не знаю
+
+"
+scroll_active = false
+scroll_following_visible_characters = true
