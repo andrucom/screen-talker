@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b8xiyvuflmflw"]
+
+[ext_resource type="Script" uid="uid://cifdno7a8i2bw" path="res://scripts/character_2d.gd" id="1_14mg1"]
+[ext_resource type="Texture2D" uid="uid://ce2iuhns0q4he" path="res://icon.png" id="1_xw7l6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14mg1"]
+size = Vector2(7, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5llt"]
+size = Vector2(973, 20)
+
+[node name="game_labirint" type="Node2D" unique_id=80383130]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=337493984]
+position = Vector2(192, 204)
+scale = Vector2(5.218887, 5.218887)
+platform_on_leave = 1
+script = ExtResource("1_14mg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=617689627]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_xw7l6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1737191625]
+shape = SubResource("RectangleShape2D_14mg1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=725431282]
+position = Vector2(182, 638)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=276277103]
+position = Vector2(130.5, 0)
+shape = SubResource("RectangleShape2D_o5llt")

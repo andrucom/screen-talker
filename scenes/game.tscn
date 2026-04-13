@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hpaedd25oa4u"]
 
 [ext_resource type="Script" uid="uid://crv4haeoe42ak" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://b8xiyvuflmflw" path="res://scenes/game_labirint.tscn" id="2_yqjtg"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
 variation_embolden = -0.19
@@ -110,3 +111,5 @@ text = "1. Первый выбор
 "
 scroll_active = false
 scroll_following_visible_characters = true
+
+[node name="game_labirint" parent="." unique_id=80383130 instance=ExtResource("2_yqjtg")]
