@@ -2,16 +2,25 @@ extends CharacterBody2D
 
 
 @export var SPEED = 0.1
-
+var original_SPEED = SPEED
+var moving
+var move_direction
 
 func _physics_process(delta: float) -> void:
+	# Запоминаем направление при нажатии
 	if Input:
+		var horizontal = Input.get_axis("left", "right")
+		var vertical = Input.get_axis("up", "down")
+		move_direction = Vector2(horizontal, vertical).normalized()
+		moving = true
+	
+	# Двигаемся пока не столкнемся
+	if moving:
+		var motion = move_direction * SPEED * delta
+		var collision = move_and_collide(motion)
 		
-		var horizontal := Input.get_axis("left", "right")
-		var vertical := Input.get_axis("up", "down")
-		
-		var motion = Vector2(horizontal, vertical) * SPEED * delta
-		move_and_collide(motion)
+		if collision:
+			moving = false  # Останавливаемся при столкновении
 	
 	#var direction := Input.get_axis("left", "right")
 	#
