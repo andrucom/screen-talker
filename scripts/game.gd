@@ -17,7 +17,6 @@ func _ready() -> void:
 	#main.visible = false
 	
 	LabelRULE.text = DS.get_text_by_id("rule")
-	LabelMAIN.text = "score: " + str(G.score)
 	LabelCHOICE.text = DS.get_text_by_id("_clear")
 	TextAnimator._typeware(LabelRULE,2)
 	TextAnimator._typeware(LabelMAIN,2)
