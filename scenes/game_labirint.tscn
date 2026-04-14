@@ -6,27 +6,31 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14mg1"]
 size = Vector2(7, 7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5llt"]
-size = Vector2(973, 20)
-
 [node name="game_labirint" type="Node2D" unique_id=80383130]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=337493984]
-position = Vector2(192, 204)
-scale = Vector2(5.218887, 5.218887)
+[node name="Control" type="Control" parent="." unique_id=653203321]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Control" unique_id=337493984]
+position = Vector2(36, 332)
+scale = Vector2(3.33, 3.33)
 platform_on_leave = 1
 script = ExtResource("1_14mg1")
+SPEED = 200.0
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=617689627]
+[node name="Sprite2D" type="Sprite2D" parent="Control/CharacterBody2D" unique_id=617689627]
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_xw7l6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1737191625]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/CharacterBody2D" unique_id=1737191625]
 shape = SubResource("RectangleShape2D_14mg1")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=725431282]
-position = Vector2(182, 638)
+[node name="StaticBody2D" type="StaticBody2D" parent="Control" unique_id=1203518706]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=276277103]
-position = Vector2(130.5, 0)
-shape = SubResource("RectangleShape2D_o5llt")
+[node name="world" type="CollisionPolygon2D" parent="Control/StaticBody2D" unique_id=116981823]
+build_mode = 1
+polygon = PackedVector2Array(0, 512, 0, 0, 512, 0, 512, 512)
+one_way_collision_margin = 128.0

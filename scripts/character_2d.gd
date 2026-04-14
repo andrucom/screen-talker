@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 3000
+@export var SPEED = 0.1
 
 
 func _physics_process(delta: float) -> void:

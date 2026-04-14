@@ -67,9 +67,3 @@ func start():
 	await GTime.delay(2.5)
 	logo.visible = false
 	main.visible = true
-
-
-func _on_pc_input_connect() -> void:
-	var node = $Game
-	node.game_handler()
-	pass # Replace with function body.

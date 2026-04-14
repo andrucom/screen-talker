@@ -76,6 +76,7 @@ scroll_active = false
 scroll_following_visible_characters = true
 
 [node name="LabelMAIN" type="RichTextLabel" parent="main" unique_id=993399369]
+visible = false
 layout_mode = 0
 offset_left = 38.0
 offset_top = 120.0
