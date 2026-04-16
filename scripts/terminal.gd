@@ -40,6 +40,7 @@ func game_toggle():
 	LabelMAIN.visible = false
 	LabelCHOICE.visible = false
 	
+	G.game = true
 	game.visible = true
 
 func start():

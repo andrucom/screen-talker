@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var labelLVL = get_node("../LabelLVL")
 @onready var labelALL = get_node("../LabelALL")
 
+@export var test_game = false
 @export var SPEED = 0.1
 
 var original_SPEED = SPEED
@@ -19,15 +20,15 @@ var original_position = self.position
 var original_location 
 
 func _ready() -> void:
-
+	G.game = test_game
 	location = get_node("../lvl1")
 	original_location = location
-	labelALL.text =  "|" + str(lvl_counter()-1)
+	labelALL.text =  "/ " + str(lvl_counter()-1)
 
 
 func _physics_process(delta: float) -> void:
 	# Запоминаем направление при нажатии
-	if Input.is_anything_pressed():
+	if Input.is_anything_pressed() and G.game == true and moving != true:
 		var horizontal = Input.get_axis("left", "right")
 		var vertical = Input.get_axis("up", "down")
 		move_direction = Vector2(horizontal, vertical).normalized()
@@ -58,18 +59,13 @@ func check_tilemap():
 		next_lvl()
 		
 func next_lvl():
-	print("ok")
-	#lvltext = str(G.lvl-1) + " / " + str(lvl_counter()-1)
-
-	
-	print(G.lvl)
-	print(lvl_counter())
+	moving = false
 	if  G.lvl < lvl_counter():
 		
 		original_location = location
 
 		var nname = "../lvl" + str(G.lvl)
-		labelLVL.text = nname
+		labelLVL.text = str(G.lvl)
 		location = get_node(str(nname))
 		
 		G.lvl_visible(original_location, false)

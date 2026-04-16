@@ -4,6 +4,8 @@ var pc_ligh = Color("red")
 var dot = false
 var choice = ""
 
+var game = false
+
 var lvl = 2
 
 
