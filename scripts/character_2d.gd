@@ -6,7 +6,6 @@ extends CharacterBody2D
 @onready var labelLVL = get_node("../LabelLVL")
 @onready var labelALL = get_node("../LabelALL")
 
-@export var test_game = false
 @export var SPEED = 0.1
 
 var original_SPEED = SPEED
@@ -20,7 +19,6 @@ var original_position = self.position
 var original_location 
 
 func _ready() -> void:
-	G.game = test_game
 	location = get_node("../lvl1")
 	original_location = location
 	labelALL.text =  "/ " + str(lvl_counter()-1)
