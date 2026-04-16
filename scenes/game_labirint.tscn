@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://2x1jqpgbdxbn" path="res://models/textures/atlas_2.png" id="2_iyvu8"]
 [ext_resource type="Texture2D" uid="uid://bfb3h0jvnwms7" path="res://models/textures/atlas_1.png" id="3_o5llt"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="4_iyvu8"]
+[ext_resource type="Script" uid="uid://dhjp257leofht" path="res://scripts/trail_2d.gd" id="6_d6bro"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
 variation_embolden = -0.19
@@ -550,6 +551,10 @@ sources/1 = SubResource("TileSetAtlasSource_ka2d2")
 _data = [Vector2(0.32394367, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Curve" id="Curve_1nwwi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.8830645, 0.8599222), 1.5439689, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14mg1"]
 size = Vector2(15, 15)
 
@@ -625,6 +630,13 @@ position = Vector2(72, 344)
 platform_on_leave = 1
 script = ExtResource("1_14mg1")
 SPEED = 2500.0
+
+[node name="Trail2D" type="Line2D" parent="CharacterBody2D" unique_id=574909986]
+show_behind_parent = true
+width_curve = SubResource("Curve_1nwwi")
+default_color = Color(1, 0.016803095, 0.009236484, 1)
+script = ExtResource("6_d6bro")
+lenght = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=617689627]
 modulate = Color(1, 0, 0, 1)
