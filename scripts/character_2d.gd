@@ -37,10 +37,12 @@ func _physics_process(delta: float) -> void:
 			move_direction = Vector2(horizontal, vertical).normalized()
 			moving = true
 			stop_timer = 0.0
+			$Sprite2D.scale.y = 1
 	
 	if velocity.length() == 0 and moving:
 		stop_timer += delta
 		if stop_timer >= STOP_DELAY:
+			$Sprite2D.scale.y = 1.77
 			moving = false
 			stop_timer = 0.0
 	else:
@@ -53,7 +55,8 @@ func _physics_process(delta: float) -> void:
 	
 		if collision:
 			particles.emitting = true
-			moving = false 
+			moving = false
+			$Sprite2D.scale.y = 1.77
 
 
 func check_tilemap():
