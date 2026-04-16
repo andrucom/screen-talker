@@ -23,7 +23,7 @@ G="*uid://c0wnhcn1uksny"
 
 [display]
 
-window/size/mode=4
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

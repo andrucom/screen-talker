@@ -6,39 +6,55 @@ extends CharacterBody2D
 @onready var labelLVL = get_node("../LabelLVL")
 @onready var labelALL = get_node("../LabelALL")
 
-@export var SPEED = 0.1
+@export var SPEED = 2500
+
+var stop_timer = 0.0
+var STOP_DELAY = 0.25
 
 var original_SPEED = SPEED
-var moving
+var moving = false
 var move_direction
-
-var lvltext 
 
 var location
 var original_position = self.position
 var original_location 
 
 func _ready() -> void:
+	#G.game
+	#moving
+	
 	location = get_node("../lvl1")
 	original_location = location
-	labelALL.text =  "/ " + str(lvl_counter()-1)
+	labelALL.text =  "/ " + str(lvl_counter())
 
 
 func _physics_process(delta: float) -> void:
-	# Запоминаем направление при нажатии
-	if Input.is_anything_pressed() and G.game == true and moving != true:
-		var horizontal = Input.get_axis("left", "right")
-		var vertical = Input.get_axis("up", "down")
-		move_direction = Vector2(horizontal, vertical).normalized()
-		moving = true
+
+	if G.game == true:
+		if Input.is_anything_pressed() and moving != true:
+			var horizontal = Input.get_axis("left", "right")
+			var vertical = Input.get_axis("up", "down")
+			move_direction = Vector2(horizontal, vertical).normalized()
+			moving = true
+			stop_timer = 0.0
+	
+	if velocity.length() == 0 and moving:
+		stop_timer += delta
+		if stop_timer >= STOP_DELAY:
+			moving = false
+			stop_timer = 0.0
+	else:
+		stop_timer = 0.0
 	
 	if moving:
 		var motion = move_direction * SPEED * delta
 		var collision = move_and_collide(motion)
 		check_tilemap()
+	
 		if collision:
 			particles.emitting = true
-			moving = false  
+			moving = false 
+
 
 func check_tilemap():
 	var cell_pos = location.local_to_map(global_position)
@@ -48,29 +64,36 @@ func check_tilemap():
 	if tile_data != null:
 		custom_value = tile_data.get_custom_data("Finish")
 	
-	if  tile_data != null and custom_value == true:
-		particles_win.position = self.position
-		particles_win.emitting = true
-		
-		await GTime.delay(0.1)
-		self.position = original_position
-		next_lvl()
+		if  tile_data != null and custom_value == true:
+			particles_win.position = self.position
+			particles_win.emitting = true
+			
+			
+			next_lvl()
 		
 func next_lvl():
-	moving = false
+	self.position = original_position
 	if  G.lvl < lvl_counter():
+		print("PING" + str(G.lvl))
+		G.lvl += 1
+		moving = false
 		
 		original_location = location
-
 		var nname = "../lvl" + str(G.lvl)
 		labelLVL.text = str(G.lvl)
 		location = get_node(str(nname))
 		
+		print(">>>", G.lvl)
+		print(">>", original_location)
+		print(">", location)
+		
+		await get_tree().process_frame
 		G.lvl_visible(original_location, false)
 		G.lvl_visible(location, true)
+	
+	else:
+		self.position = original_position
 		
-		await  GTime.delay(0.1)
-		G.lvl += 1
 
 func lvl_counter():
 	var count = 0
@@ -82,7 +105,7 @@ func lvl_counter():
 			count += 1
 		else:
 			break
-	return count+1
+	return count
 	
 	
 

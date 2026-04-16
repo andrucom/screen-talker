@@ -6,8 +6,7 @@ var choice = ""
 
 var game = false
 
-var lvl = 2
-
+var lvl = 1
 
 static func lvl_visible(path, state):
 	path.visible = state

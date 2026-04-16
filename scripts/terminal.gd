@@ -39,9 +39,9 @@ func _process(delta: float) -> void:
 func game_toggle():
 	LabelMAIN.visible = false
 	LabelCHOICE.visible = false
-	
-	G.game = true
 	game.visible = true
+	await  GTime.delay(0.2)
+	G.game = true
 
 func start():
 	# init ver
