@@ -571,11 +571,12 @@ theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
 theme_override_font_sizes/font_size = 25
 text = "../lvl1"
 
-[node name="LabelALL" type="Label" parent="." unique_id=1834482445]
-offset_left = 478.0
-offset_top = 482.0
-offset_right = 541.0
-offset_bottom = 531.0
+[node name="LabelALL" type="Label" parent="LabelLVL" unique_id=1834482445]
+layout_mode = 0
+offset_left = 63.332813
+offset_top = 6.6666217
+offset_right = 126.33281
+offset_bottom = 55.666622
 scale = Vector2(0.6000049, 0.6000049)
 theme = SubResource("Theme_ka2d2")
 theme_override_colors/font_color = Color(0.10363316, 0.5916224, 0.099400245, 1)
