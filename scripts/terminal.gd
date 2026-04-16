@@ -29,12 +29,13 @@ func _ready() -> void:
 	TextAnimator._typeware(LabelCHOICE, 2)
 	
 	await GTime.delay(2)
-	DS.choice(game_toggle.bind(), DS.show_dialog.bind(LabelMAIN,"_clear"))
+	DS.choice(game_toggle.bind(), exit.bind())
 
 func _process(delta: float) -> void:
 	LabelTIME.text = "TIME: " + Time.get_time_string_from_system()
 
-
+func exit():
+	get_tree().quit()
 
 func game_toggle():
 	LabelMAIN.visible = false
