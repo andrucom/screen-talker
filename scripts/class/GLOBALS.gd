@@ -6,6 +6,7 @@ var choice = ""
 
 var game = false
 var end_game = false
+var end_dialoge = false
 
 var lvl = 1
 
