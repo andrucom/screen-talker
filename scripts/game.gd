@@ -22,10 +22,12 @@ func _ready() -> void:
 	TextAnimator._typeware(LabelMAIN,2)
 	TextAnimator._typeware(LabelCHOICE,2)
 
+
 func _physics_process(delta: float) -> void:
 	pass
 	
 func _on_pc_input_connect() -> void:
+
 	pass
 
 		

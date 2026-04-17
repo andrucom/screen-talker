@@ -32,6 +32,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 
+	if Input.is_action_just_released("skip_lvl") and G.game:
+		next_lvl()
+	
 	if G.game == true:
 		if Input.is_anything_pressed() and moving != true:
 			var horizontal = Input.get_axis("left", "right")
