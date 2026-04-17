@@ -20,6 +20,7 @@ var location
 var original_position = self.position
 var original_location 
 
+
 func _ready() -> void:
 	#G.game
 	#moving
@@ -104,6 +105,8 @@ func next_lvl():
 	
 	else:
 		self.position = original_position
+		G.game = false
+		G.end_game = true
 		
 
 func lvl_counter():
