@@ -5,6 +5,7 @@ var dot = false
 var choice = ""
 
 var game = false
+var end_game = false
 
 var lvl = 1
 

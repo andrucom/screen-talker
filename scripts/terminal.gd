@@ -12,8 +12,6 @@ extends Control
 @onready var progressbar = $logo/ProgressBar
 @onready var path =  "res://text/text_ru.json" 
 
-
-var _stat = false
 var DS
 
 const VERSION_DATA = preload("res://version.tres")
@@ -43,6 +41,10 @@ func game_toggle():
 	game.visible = true
 	await  GTime.delay(0.2)
 	G.game = true
+
+func end_game():
+	if G.end_game == true:
+		game.visible = false
 
 func start():
 	# init ver
