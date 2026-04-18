@@ -536,6 +536,6 @@ color = Color(0.8794534, 0, 0.026229044, 1)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CharacterBody2D" unique_id=612741664]
 stream = ExtResource("6_1nwwi")
-volume_db = -70.0
+volume_db = -50.0
 max_db = 0.0
 pitch_scale = 1.2

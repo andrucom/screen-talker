@@ -18,18 +18,22 @@ var mouse_sensitivity = 0.01
 @export var fov_min = 20
 @export var time_unfov = 8
 
+var sound = preload("res://sounds/music/Prison.mp3")
+@onready var audio = $audio_main
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
 	camera.fov = fov_original
+	
+	await GTime.delay(5)
+	audio.play()
+	audio.stream.loop = true
 
 func _physics_process(delta: float) -> void:
 	rayfire_screen()
 	$CanvasLayer/Dot.visible = G.dot
-	
-
 
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:	

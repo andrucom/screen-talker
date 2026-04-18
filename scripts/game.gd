@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func _on_pc_input_connect() -> void:
-
 	pass
 
 		
