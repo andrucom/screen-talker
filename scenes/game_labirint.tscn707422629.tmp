@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cbnkfeivxq1b" path="res://scripts/game_labirint.gd" id="1_ka2d2"]
 [ext_resource type="Texture2D" uid="uid://2x1jqpgbdxbn" path="res://models/textures/atlas_2.png" id="2_iyvu8"]
 [ext_resource type="Texture2D" uid="uid://dk2rtsk4hxqs1" path="res://models/textures/crosshair001.png" id="4_iyvu8"]
-[ext_resource type="AudioStream" uid="uid://nfuebeii6fqu" path="res://sounds/next_lvl.mp3" id="6_1nwwi"]
+[ext_resource type="AudioStream" uid="uid://bq3r72t1onan1" path="res://sounds/next_lvl.mp3" id="6_1nwwi"]
 [ext_resource type="Script" uid="uid://dhjp257leofht" path="res://scripts/trail_2d.gd" id="6_d6bro"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
@@ -536,6 +536,4 @@ color = Color(0.8794534, 0, 0.026229044, 1)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CharacterBody2D" unique_id=612741664]
 stream = ExtResource("6_1nwwi")
-volume_db = -70.0
-max_db = 0.0
-pitch_scale = 1.2
+max_db = 1.005

@@ -146,7 +146,7 @@ autoplay = &"first"
 [node name="pc" parent="." unique_id=1334224844 instance=ExtResource("4_18nlu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22348064, 0, -0.49915546)
 
-[node name="audio_pc" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
+[node name="audio_keyboard" type="AudioStreamPlayer3D" parent="pc" unique_id=1760812099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3328485, 0.10863447, 0.91339797)
 
 [node name="power_light" type="OmniLight3D" parent="pc" unique_id=1224922466]
@@ -160,5 +160,8 @@ omni_range = 0.052564356
 [node name="CanvasLayer" type="CanvasLayer" parent="pc/SubViewport" unique_id=28535860]
 
 [node name="Terminal" parent="pc/SubViewport/CanvasLayer" unique_id=204974278 instance=ExtResource("5_c1pb6")]
+
+[node name="audio_pc" type="AudioStreamPlayer3D" parent="pc" unique_id=1070250639]
+volume_db = -37.0
 
 [connection signal="input_connect" from="pc" to="pc/SubViewport/CanvasLayer/Terminal" method="_on_pc_input_connect"]

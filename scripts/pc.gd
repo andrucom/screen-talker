@@ -1,5 +1,6 @@
 extends Node3D
-@onready var audio = $audio_pc
+@onready var audio_pc = $audio_pc
+@onready var audio = $audio_keyboard
 @onready var pc_light = $power_light
 
 var pressed_handled = {}
@@ -7,6 +8,10 @@ const push_power = 0.005
 var sound = preload("res://sounds/button.mp3")
 var sound_space = preload("res://sounds/space.mp3")
 var sound_enter = preload("res://sounds/enter.mp3")
+
+var pc_start = preload("res://sounds/pc_start.mp3")
+var pc_work = preload("res://sounds/pc_work.mp3")
+
 var power = false
 signal input_connect()
 
@@ -16,6 +21,14 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	_init_screen()
+	
+	await GTime.delay(4)
+	audio_pc.stream = pc_start
+	audio_pc.play()
+	await audio_pc.finished
+	audio_pc.stream = pc_work
+	audio_pc.stream.loop = true
+	audio_pc.play()
 	
 	#var game = $SubViewport/CanvasLayer/Terminal/Game
 	#game.input_connect.connect()
