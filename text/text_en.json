@@ -1,0 +1,57 @@
+[
+	{
+		"id": "_clear",
+		"text": " "
+	},
+	{
+		"id": "main_start",
+		"text": "test text"
+	},
+	{
+		"id": "main_start2",
+		"text": "Hello! In this simulation we need to test brain activity...\nYou will need to complete all levels to finish the simulation"
+	},
+	{
+		"id": "main_game",
+		"text": "bla bla: {{VERSION_DATA.version}}"
+	},
+	
+	{
+		"id": "choice_start2", 
+		"text": "1. Proceed\n2. Refuse"
+	},
+	
+	
+	{
+		"id": "main_test",
+		"text": "test"
+	},
+	{
+		"id": "choice_test", 
+		"text": "1. Okay\n2. Not okay"
+	},
+	{
+		"id": "choice_shop",
+		"text": "1. Buy upgrade\n2. Reset upgrade but increase its value"
+	},
+	{
+		"id": "choice_end",
+		"text": "1. Continue\n[shake rate=15 level=10][color=red]2. End[/color][/shake]"
+	},
+
+	{
+		"id": "rule",
+		"text": "It's quite simple. Control like on a real PC - WASD\nRemember, you need to complete all levels"
+	},
+	
+	{
+		"id": "end_game",
+		"text": "Great! You've completed everything... We will now begin extracting your consciousness from VR II..."
+	},
+	
+	{
+		"id": "end_error",
+		"text": "The Colonel won't be pleased... I have bad news - you're stuck here forever... Outside the simulation, you're just a piece of meat... Like sleeping with your eyes open. The only place where your brain shows activity is the simulation.\nWe've named this incident [shake rate=15 level=10][color=red]'DEAD BRAIN'[/color][/shake]\n\nDo you want to continue the simulation or die completely?... "
+	}
+	
+]
