@@ -2,15 +2,23 @@ class_name DialogSystem
 extends Node
 
 
-var path =  "res://text/text_ru.json"
+var path = ""
 var dialogues_data = []
 
 var _stat = false
 
 func _enter_tree() -> void:
+	if OS.get_locale_language() in ["be", "ru"]:
+		print(OS.get_locale_language())
+		path = "res://text/text_ru.json"
+	else:
+		path = "res://text/text_en.json"
+	
 	load_dialogues(path)
 
 func load_dialogues(file_path: String):
+
+	
 	# Проверяем, существует ли файл
 	if not FileAccess.file_exists(file_path):
 		print("Файл не найден: ", file_path)
