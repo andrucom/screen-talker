@@ -71,7 +71,6 @@ theme = SubResource("Theme_uwrxv")
 theme_override_colors/default_color = Color(0.15686275, 0.9843137, 0.15686275, 1)
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "ТУТ у нас правила бла бла "
 scroll_active = false
 scroll_following_visible_characters = true
 
@@ -105,9 +104,7 @@ theme = SubResource("Theme_yqjtg")
 theme_override_colors/default_color = Color(0.035471953, 0.291939, 0.032732375, 1)
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "1. Первый выбор
-2. Второй
-3. Да я ничего не знаю
+text = "
 
 "
 scroll_active = false

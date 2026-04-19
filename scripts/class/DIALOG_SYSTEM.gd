@@ -5,6 +5,8 @@ extends Node
 var path = ""
 var dialogues_data = []
 
+
+
 var _stat = false
 
 func _enter_tree() -> void:
@@ -17,7 +19,6 @@ func _enter_tree() -> void:
 	load_dialogues(path)
 
 func load_dialogues(file_path: String):
-
 	
 	# Проверяем, существует ли файл
 	if not FileAccess.file_exists(file_path):
