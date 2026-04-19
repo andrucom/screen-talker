@@ -8,7 +8,7 @@ extends Control
 @onready var Label_ = $main/Label_
 @onready var LabelCHOICE = $main/LabelCHOICE
 @onready var logo = $logo
-@onready var ps = $logo/placeholder
+@onready var ps = $logo/TextureRect
 @onready var progressbar = $logo/ProgressBar
 
 var DS
@@ -67,10 +67,11 @@ func end_game():
 		
 		await GTime.delay(5)
 		
-		LabelMAIN.text = DS.get_text_by_id("end_error")
-		TextAnimator._typeware(LabelMAIN,10)
+
 		LabelCHOICE.text = DS.get_text_by_id("choice_end")
 		TextAnimator._typeware(LabelCHOICE, 5)
+		LabelMAIN.text = DS.get_text_by_id("end_error")
+		TextAnimator._typeware(LabelMAIN,12)
 		
 		DS.choice(game_toggle.bind(), exit.bind())
 

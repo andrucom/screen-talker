@@ -8,7 +8,7 @@ extends Control
 
 
 var DS = DialogSystem.new()
-var add = false
+var done = false
 
 func _ready() -> void:
 	main.add_child(DS)
@@ -16,18 +16,20 @@ func _ready() -> void:
 	dev.visible = false
 	#main.visible = false
 	
-	LabelRULE.text = DS.get_text_by_id("rule")
-	LabelCHOICE.text = DS.get_text_by_id("_clear")
-	TextAnimator._typeware(LabelRULE,2)
-	TextAnimator._typeware(LabelMAIN,2)
-	TextAnimator._typeware(LabelCHOICE,2)
+
 
 
 func _physics_process(delta: float) -> void:
+	toggle_game_text()
 	pass
 	
-func _on_pc_input_connect() -> void:
-
-	pass
-
+func toggle_game_text():
+	await GTime.delay(0.05)
+	if G.game == true and done != true:
+		done = true
+		LabelRULE.text = DS.get_text_by_id("rule")
+		LabelCHOICE.text = DS.get_text_by_id("_clear")
+		TextAnimator._typeware(LabelRULE,2)
+		#TextAnimator._typeware(LabelMAIN,2)
+		#TextAnimator._typeware(LabelCHOICE,2)
 		

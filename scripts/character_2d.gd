@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-
+@onready var audio = $AudioStreamPlayer3D
 @onready var particles = $CPUParticles2D
 @onready var particles_dead = $DEAD
 @onready var particles_win = get_node("../WIN")
 @onready var labelLVL = get_node("../LabelLVL")
 @onready var labelALL = get_node("../LabelALL")
+var sound = preload("res://sounds/next_lvl.mp3")
+var sound_dead = preload("res://sounds/dead.mp3")
 
 @export var SPEED = 2300
 
@@ -31,7 +33,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	if Input.is_action_just_released("skip_lvl") and G.game:
 		next_lvl()
 	
@@ -74,12 +75,17 @@ func check_tilemap():
 		custom_value = tile_data.get_custom_data("Finish")
 		custom_value_2 = tile_data.get_custom_data("Damage")
 		if  tile_data != null and custom_value_2 == true:
+			audio.stream = sound_dead
+			audio.play()
+			
 			await GTime.delay(0.02)
 			particles_dead.emitting = true
 			self.position = original_position
 			custom_value = null
 			
 		if  tile_data != null and custom_value == true:
+			audio.stream = sound
+			audio.play()
 			particles_win.position = self.position
 			particles_win.emitting = true
 			next_lvl()
@@ -87,11 +93,14 @@ func check_tilemap():
 		
 		
 func next_lvl():
+	
 	self.position = original_position
-	if  G.lvl < lvl_counter():
+	moving = false
+	for i in ["left","right","up","down"]:
+		Input.action_release(i)
+	if  G.lvl < lvl_counter():	
 		print("PING" + str(G.lvl))
 		G.lvl += 1
-		moving = false
 		
 		original_location = location
 		var nname = "../lvl" + str(G.lvl)

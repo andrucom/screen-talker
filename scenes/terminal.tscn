@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://coe1ka3ll3mlr" path="res://shaders/terminal.gdshader" id="1_m430i"]
 [ext_resource type="Script" uid="uid://1japkjf7q2ax" path="res://scripts/terminal.gd" id="1_sy66w"]
+[ext_resource type="Texture2D" uid="uid://kd3wsa7lvci0" path="res://models/textures/Sunset.png" id="2_dhnb1"]
 [ext_resource type="PackedScene" uid="uid://hpaedd25oa4u" path="res://scenes/game.tscn" id="2_vs6ym"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
@@ -44,7 +45,18 @@ anchors_preset = 0
 offset_right = 512.0
 offset_bottom = 512.0
 
+[node name="TextureRect" type="TextureRect" parent="logo" unique_id=1961481056]
+modulate = Color(0, 0.638037, 0.08850486, 1)
+layout_mode = 0
+offset_left = 124.0
+offset_top = 120.0
+offset_right = 1148.0
+offset_bottom = 1144.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_dhnb1")
+
 [node name="placeholder" type="Label" parent="logo" unique_id=1750752472]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -143,7 +155,7 @@ offset_top = 438.0
 offset_right = 479.0
 offset_bottom = 505.0
 theme = SubResource("Theme_m430i")
-theme_override_colors/default_color = Color(0.035471953, 0.291939, 0.032732375, 1)
+theme_override_colors/default_color = Color(0.1026056, 0.5838572, 0.09566211, 1)
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 text = "1. Первый выбор
