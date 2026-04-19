@@ -95,10 +95,12 @@ func check_tilemap():
 func next_lvl():
 	
 	self.position = original_position
+	moving = false
+	for i in ["left","right","up","down"]:
+		Input.action_release(i)
 	if  G.lvl < lvl_counter():	
 		print("PING" + str(G.lvl))
 		G.lvl += 1
-		moving = false
 		
 		original_location = location
 		var nname = "../lvl" + str(G.lvl)
