@@ -39,6 +39,15 @@ func _physics_process(delta: float) -> void:
 
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:	
+	if event is InputEvent:
+		if event.is_action_pressed("screan_mode"):
+				print(">><><><")
+				var current_mode = DisplayServer.window_get_mode()
+				if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+				else:
+					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			for i in range(10):
