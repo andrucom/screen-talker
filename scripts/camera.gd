@@ -11,6 +11,7 @@ var input_rotation_y = 0.0
 var shake_offset_x = 0.0
 var shake_offset_y = 0.0
 var mouse_sensitivity = 0.01
+var current_tween: Tween
 
 @export var shake_power = 0.005
 @export var time_fov = 5.0
@@ -37,6 +38,14 @@ func _physics_process(delta: float) -> void:
 
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			for i in range(10):
+				camera.fov = clamp(camera.fov-0.1, fov_min, fov_original)
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			for i in range(10):
+				camera.fov = clamp(camera.fov+0.1, fov_min, fov_original)
+	
 	if event.is_action_pressed("use") :
 		rayfire()
 
@@ -85,15 +94,19 @@ func shake(delta):
 
 #Лучь для проверки нужного метода
 func rayfire_screen():
+	if current_tween != null:
+		current_tween.kill()
+	
 	if raycast.is_colliding() != false:
 		var target_name = raycast.get_collider().get_parent().name
 		if target_name in ["screen", "screen window"]:
-			var tween = create_tween()
-			tween.tween_property(camera, "fov", fov_min, time_fov)
+			current_tween = create_tween()
+			current_tween.tween_property(camera, "fov", fov_min, time_fov)
 	else:
-		var tween = create_tween()
-		tween.tween_property(camera, "fov", fov_original, time_unfov)
-		pass
+		current_tween = create_tween()
+		current_tween.tween_property(camera, "fov", fov_original, time_unfov)
+
+		
 
 func rayfire():
 	print("ray: check")
