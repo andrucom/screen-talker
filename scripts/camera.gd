@@ -10,7 +10,7 @@ var input_rotation_x = 0.0
 var input_rotation_y = 0.0  
 var shake_offset_x = 0.0
 var shake_offset_y = 0.0
-var mouse_sensitivity = 0.01
+var mouse_sensitivity = 0.006
 var current_tween: Tween
 
 @export var shake_power = 0.005
@@ -26,6 +26,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
+	
 	camera.fov = fov_original
 	
 	await GTime.delay(5)
@@ -45,8 +46,21 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			for i in range(10):
 				camera.fov = clamp(camera.fov+0.1, fov_min, fov_original)
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			var tween = create_tween()
+			var duration = 0.3
+			tween.set_parallel(true)
+			tween.tween_property(camera, "input_rotation_x",-0.091, duration)
+			tween.tween_property(camera, "input_rotation_y",0.007, duration)
+			
+			await  GTime.delay(duration+0.1)
+			tween.kill()
+			
+			
+			#input_rotation_x = -0.091
+			#input_rotation_y = 0.007
 	
-	if event.is_action_pressed("use") :
+	if event.is_action_pressed("use"):
 		rayfire()
 
 	if event is InputEventMouseMotion:
@@ -62,8 +76,8 @@ func _input(event: InputEvent) -> void:
 		target_x = clamp(target_x, -0.5, 0.5)
 		target_y = clamp(target_y, -0.5, 0.5)
 
-		input_rotation_x = lerp(input_rotation_x, target_x, 0.7)
-		input_rotation_y = lerp(input_rotation_y, target_y, 1.0)
+		input_rotation_x = lerp(input_rotation_x, target_x, 0.5)
+		input_rotation_y = lerp(input_rotation_y, target_y, 0.5)
 		
 		# Это фикс для Linux Wayland.
 		# https://github.com/godotengine/godot/issues/80008
@@ -96,7 +110,6 @@ func shake(delta):
 func rayfire_screen():
 	if current_tween != null:
 		current_tween.kill()
-	
 	if raycast.is_colliding() != false:
 		var target_name = raycast.get_collider().get_parent().name
 		if target_name in ["screen", "screen window"]:
@@ -105,8 +118,6 @@ func rayfire_screen():
 	else:
 		current_tween = create_tween()
 		current_tween.tween_property(camera, "fov", fov_original, time_unfov)
-
-		
 
 func rayfire():
 	print("ray: check")
