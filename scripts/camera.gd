@@ -13,12 +13,17 @@ var shake_offset_y = 0.0
 var mouse_sensitivity = 0.006
 var current_tween: Tween
 
+@onready var light_right: SpotLight3D = get_node("../WorldEnvironment/SpotLight3D")
+@onready var light_left: SpotLight3D = get_node("../WorldEnvironment/SpotLight3D2")
+
 @export var shake_power = 0.005
 @export var time_fov = 5.0
 @export var fov_original = 48
 @export var fov_min = 20
 @export var time_unfov = 8
 
+var music_end = preload("res://sounds/music/When-You-Die.mp3")
+var sound_dead = preload("res://sounds/dead.mp3")
 var sound = preload("res://sounds/music/Prison.mp3")
 @onready var audio = $audio_main
 
@@ -122,6 +127,21 @@ func _process(delta: float) -> void:
 	# Суммируем вращение от мыши и тряску
 	camera.rotation.x = input_rotation_x + shake_offset_x
 	camera.rotation.y = input_rotation_y + shake_offset_y
+	end_game()
+	
+func end_game():
+	if G.end_exit:
+		G.end_exit = false
+		light_right.visible = false
+		light_left.light_color = Color.RED
+		G.dot = false
+		
+		audio.stream = music_end
+		audio.play()
+		
+		await audio.finished
+		GTime.delay(1)
+		get_tree().quit()
 
 func shake(delta):
 	time += delta

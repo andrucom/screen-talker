@@ -8,6 +8,7 @@ extends Control
 @onready var LabelVOLUME = $main/LabelVOLUME
 @onready var Label_ = $main/Label_
 @onready var LabelCHOICE = $main/LabelCHOICE
+@onready var logo_skull = $skull
 @onready var logo = $logo
 @onready var ps = $logo/TextureRect
 @onready var progressbar = $logo/ProgressBar
@@ -35,7 +36,14 @@ func _process(delta: float) -> void:
 	end_game()
 
 func exit():
-	get_tree().quit()
+	logo.visible = false
+	main.visible = false
+	
+	G.end_exit = true
+	
+	logo_skull.visible = true
+	
+	#get_tree().quit()
 
 func game_toggle():
 	LabelMAIN.visible = false
@@ -81,6 +89,8 @@ func end_game():
 func start():
 	# init ver
 	LabelVER.text ="VER:  " + VERSION_DATA.version
+	
+	logo_skull.visible = false
 	
 	main.visible = false
 	game.visible = false

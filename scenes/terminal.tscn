@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://coe1ka3ll3mlr" path="res://shaders/terminal.gdshader" id="1_m430i"]
 [ext_resource type="Script" uid="uid://1japkjf7q2ax" path="res://scripts/terminal.gd" id="1_sy66w"]
 [ext_resource type="Texture2D" uid="uid://ddtfjal4ki2fc" path="res://models/textures/Sunset.png" id="2_dhnb1"]
+[ext_resource type="Texture2D" uid="uid://byws3aq7yg50g" path="res://models/textures/skull.png" id="2_ojupu"]
 [ext_resource type="PackedScene" uid="uid://hpaedd25oa4u" path="res://scenes/game.tscn" id="2_vs6ym"]
 [ext_resource type="Texture2D" uid="uid://cxtsmb15ts4hq" path="res://models/textures/Sunset_aB.png" id="3_4vtf0"]
 
@@ -39,6 +40,16 @@ layout_mode = 1
 offset_right = 512.0
 offset_bottom = 512.0
 color = Color(0, 0, 0, 1)
+
+[node name="skull" type="TextureRect" parent="." unique_id=496061093]
+modulate = Color(0.59905666, 1.4318898e-06, 4.3317675e-07, 1)
+layout_mode = 0
+offset_left = -25.999998
+offset_top = 54.999996
+offset_right = 894.0
+offset_bottom = 686.0
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("2_ojupu")
 
 [node name="logo" type="Control" parent="." unique_id=782673511]
 visible = false
