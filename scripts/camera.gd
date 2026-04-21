@@ -50,11 +50,14 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			for i in range(10):
-				camera.fov = clamp(camera.fov-0.1, fov_min, fov_original)
+			for i in range(50):
+				await GTime.delay(0.001)
+				camera.fov = clamp(camera.fov-0.05, fov_min, fov_original)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			for i in range(10):
-				camera.fov = clamp(camera.fov+0.1, fov_min, fov_original)
+			for i in range(50):
+				await GTime.delay(0.001)
+				camera.fov = clamp(camera.fov+0.05, fov_min, fov_original)
+				
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			var tween = create_tween()
 			var duration = 0.3
