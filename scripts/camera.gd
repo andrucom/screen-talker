@@ -40,6 +40,16 @@ func _physics_process(delta: float) -> void:
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:	
 	if event is InputEvent:
+		if event.is_action("volume_up"):
+			G.Volume = clamp(G.Volume + 1 , -25, 20)
+			var bus = AudioServer.get_bus_index("Master")
+			AudioServer.set_bus_volume_db(bus,G.Volume)
+			
+		if event.is_action("volume_down"):
+			G.Volume = clamp(G.Volume - 1 , -25, 20)
+			var bus = AudioServer.get_bus_index("Master")
+			AudioServer.set_bus_volume_db(bus,G.Volume)
+			
 		if event.is_action_pressed("screan_mode"):
 				print(">><><><")
 				var current_mode = DisplayServer.window_get_mode()

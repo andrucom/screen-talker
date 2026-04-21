@@ -5,6 +5,7 @@ extends Control
 @onready var LabelMAIN = $main/LabelMAIN
 @onready var LabelVER = $main/LabelVER
 @onready var LabelTIME = $main/LabelTIME
+@onready var LabelVOLUME = $main/LabelVOLUME
 @onready var Label_ = $main/Label_
 @onready var LabelCHOICE = $main/LabelCHOICE
 @onready var logo = $logo
@@ -30,6 +31,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	LabelTIME.text = "TIME: " + Time.get_time_string_from_system()
+	LabelVOLUME.text = "VOLUME_DB: " + str(G.Volume)
 	end_game()
 
 func exit():
