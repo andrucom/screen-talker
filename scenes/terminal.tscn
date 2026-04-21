@@ -2,8 +2,9 @@
 
 [ext_resource type="Shader" uid="uid://coe1ka3ll3mlr" path="res://shaders/terminal.gdshader" id="1_m430i"]
 [ext_resource type="Script" uid="uid://1japkjf7q2ax" path="res://scripts/terminal.gd" id="1_sy66w"]
-[ext_resource type="Texture2D" uid="uid://kd3wsa7lvci0" path="res://models/textures/Sunset.png" id="2_dhnb1"]
+[ext_resource type="Texture2D" uid="uid://ddtfjal4ki2fc" path="res://models/textures/Sunset.png" id="2_dhnb1"]
 [ext_resource type="PackedScene" uid="uid://hpaedd25oa4u" path="res://scenes/game.tscn" id="2_vs6ym"]
+[ext_resource type="Texture2D" uid="uid://cxtsmb15ts4hq" path="res://models/textures/Sunset_aB.png" id="3_4vtf0"]
 
 [sub_resource type="FontVariation" id="FontVariation_sy66w"]
 variation_embolden = -0.19
@@ -45,15 +46,27 @@ anchors_preset = 0
 offset_right = 512.0
 offset_bottom = 512.0
 
-[node name="TextureRect" type="TextureRect" parent="logo" unique_id=1961481056]
+[node name="TextureRect1" type="TextureRect" parent="logo" unique_id=1961481056]
+visible = false
 modulate = Color(0, 0.638037, 0.08850486, 1)
 layout_mode = 0
-offset_left = 124.0
-offset_top = 120.0
-offset_right = 1148.0
-offset_bottom = 1144.0
-scale = Vector2(0.25, 0.25)
+offset_left = 185.00002
+offset_top = 321.0
+offset_right = 1295.0
+offset_bottom = 1031.0
+rotation = -1.5707964
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_dhnb1")
+
+[node name="TextureRect" type="TextureRect" parent="logo" unique_id=1445553702]
+modulate = Color(0, 0.638037, 0.08850486, 1)
+layout_mode = 0
+offset_left = 95.00001
+offset_top = 188.0
+offset_right = 1205.0
+offset_bottom = 708.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_4vtf0")
 
 [node name="placeholder" type="Label" parent="logo" unique_id=1750752472]
 visible = false
@@ -90,6 +103,7 @@ value = 5.0
 show_percentage = false
 
 [node name="main" type="Control" parent="." unique_id=1465256369]
+visible = false
 anchors_preset = 0
 offset_right = 512.0
 offset_bottom = 512.0
