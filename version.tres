@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_qlspv")
-version = "ALPHA 1,5"
+version = "0.0.1"
 metadata/_custom_type_script = "uid://c8l8k3g7turfj"
