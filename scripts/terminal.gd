@@ -36,6 +36,9 @@ func _process(delta: float) -> void:
 	end_game()
 
 func exit():
+	get_tree().quit()
+
+func exit_dead():
 	logo.visible = false
 	main.visible = false
 	
@@ -83,7 +86,7 @@ func end_game():
 		LabelMAIN.text = DS.get_text_by_id("end_error")
 		TextAnimator._typeware(LabelMAIN,12)
 		
-		DS.choice(game_toggle.bind(), exit.bind())
+		DS.choice(game_toggle.bind(), exit_dead.bind())
 
 
 func start():
