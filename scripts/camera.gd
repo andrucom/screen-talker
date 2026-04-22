@@ -10,7 +10,11 @@ var input_rotation_x = 0.0
 var input_rotation_y = 0.0  
 var shake_offset_x = 0.0
 var shake_offset_y = 0.0
-var mouse_sensitivity = 0.01
+var mouse_sensitivity = 0.006
+var current_tween: Tween
+
+@onready var light_right: SpotLight3D = get_node("../WorldEnvironment/SpotLight3D")
+@onready var light_left: SpotLight3D = get_node("../WorldEnvironment/SpotLight3D2")
 
 @export var shake_power = 0.005
 @export var time_fov = 5.0
@@ -18,6 +22,8 @@ var mouse_sensitivity = 0.01
 @export var fov_min = 20
 @export var time_unfov = 8
 
+var music_end = preload("res://sounds/music/When-You-Die.mp3")
+var sound_dead = preload("res://sounds/dead.mp3")
 var sound = preload("res://sounds/music/Prison.mp3")
 @onready var audio = $audio_main
 
@@ -25,6 +31,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	input_rotation_x = camera.rotation.x
 	input_rotation_y = camera.rotation.y
+	
 	camera.fov = fov_original
 	
 	await GTime.delay(5)
@@ -37,7 +44,50 @@ func _physics_process(delta: float) -> void:
 
 #Следование камеры за мышкой 
 func _input(event: InputEvent) -> void:	
-	if event.is_action_pressed("use") :
+	if event is InputEvent:
+		if event.is_action("volume_up"):
+			G.Volume = clamp(G.Volume + 1 , -25, 20)
+			var bus = AudioServer.get_bus_index("Master")
+			AudioServer.set_bus_volume_db(bus,G.Volume)
+			
+		if event.is_action("volume_down"):
+			G.Volume = clamp(G.Volume - 1 , -25, 20)
+			var bus = AudioServer.get_bus_index("Master")
+			AudioServer.set_bus_volume_db(bus,G.Volume)
+			
+		if event.is_action_pressed("screan_mode"):
+				print(">><><><")
+				var current_mode = DisplayServer.window_get_mode()
+				if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+				else:
+					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			for i in range(50):
+				await GTime.delay(0.001)
+				camera.fov = clamp(camera.fov-0.05, fov_min, fov_original)
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			for i in range(50):
+				await GTime.delay(0.001)
+				camera.fov = clamp(camera.fov+0.05, fov_min, fov_original)
+				
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			var tween = create_tween()
+			var duration = 0.3
+			tween.set_parallel(true)
+			tween.tween_property(camera, "input_rotation_x",-0.091, duration)
+			tween.tween_property(camera, "input_rotation_y",0.007, duration)
+			
+			await  GTime.delay(duration+0.1)
+			tween.kill()
+			
+			
+			#input_rotation_x = -0.091
+			#input_rotation_y = 0.007
+	
+	if event.is_action_pressed("use"):
 		rayfire()
 
 	if event is InputEventMouseMotion:
@@ -53,8 +103,8 @@ func _input(event: InputEvent) -> void:
 		target_x = clamp(target_x, -0.5, 0.5)
 		target_y = clamp(target_y, -0.5, 0.5)
 
-		input_rotation_x = lerp(input_rotation_x, target_x, 0.7)
-		input_rotation_y = lerp(input_rotation_y, target_y, 1.0)
+		input_rotation_x = lerp(input_rotation_x, target_x, 0.5)
+		input_rotation_y = lerp(input_rotation_y, target_y, 0.5)
 		
 		# Это фикс для Linux Wayland.
 		# https://github.com/godotengine/godot/issues/80008
@@ -77,6 +127,21 @@ func _process(delta: float) -> void:
 	# Суммируем вращение от мыши и тряску
 	camera.rotation.x = input_rotation_x + shake_offset_x
 	camera.rotation.y = input_rotation_y + shake_offset_y
+	end_game()
+	
+func end_game():
+	if G.end_exit:
+		G.end_exit = false
+		light_right.visible = false
+		light_left.light_color = Color.RED
+		G.dot = false
+		
+		audio.stream = music_end
+		audio.play()
+		
+		await audio.finished
+		GTime.delay(1)
+		get_tree().quit()
 
 func shake(delta):
 	time += delta
@@ -85,15 +150,16 @@ func shake(delta):
 
 #Лучь для проверки нужного метода
 func rayfire_screen():
+	if current_tween != null:
+		current_tween.kill()
 	if raycast.is_colliding() != false:
 		var target_name = raycast.get_collider().get_parent().name
 		if target_name in ["screen", "screen window"]:
-			var tween = create_tween()
-			tween.tween_property(camera, "fov", fov_min, time_fov)
+			current_tween = create_tween()
+			current_tween.tween_property(camera, "fov", fov_min, time_fov)
 	else:
-		var tween = create_tween()
-		tween.tween_property(camera, "fov", fov_original, time_unfov)
-		pass
+		current_tween = create_tween()
+		current_tween.tween_property(camera, "fov", fov_original, time_unfov)
 
 func rayfire():
 	print("ray: check")

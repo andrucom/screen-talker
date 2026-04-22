@@ -5,8 +5,10 @@ extends Control
 @onready var LabelMAIN = $main/LabelMAIN
 @onready var LabelVER = $main/LabelVER
 @onready var LabelTIME = $main/LabelTIME
+@onready var LabelVOLUME = $main/LabelVOLUME
 @onready var Label_ = $main/Label_
 @onready var LabelCHOICE = $main/LabelCHOICE
+@onready var logo_skull = $skull
 @onready var logo = $logo
 @onready var ps = $logo/TextureRect
 @onready var progressbar = $logo/ProgressBar
@@ -30,10 +32,21 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	LabelTIME.text = "TIME: " + Time.get_time_string_from_system()
+	LabelVOLUME.text = "VOLUME_DB: " + str(G.Volume)
 	end_game()
 
 func exit():
 	get_tree().quit()
+
+func exit_dead():
+	logo.visible = false
+	main.visible = false
+	
+	G.end_exit = true
+	
+	logo_skull.visible = true
+	
+	#get_tree().quit()
 
 func game_toggle():
 	LabelMAIN.visible = false
@@ -73,12 +86,14 @@ func end_game():
 		LabelMAIN.text = DS.get_text_by_id("end_error")
 		TextAnimator._typeware(LabelMAIN,12)
 		
-		DS.choice(game_toggle.bind(), exit.bind())
+		DS.choice(game_toggle.bind(), exit_dead.bind())
 
 
 func start():
 	# init ver
 	LabelVER.text ="VER:  " + VERSION_DATA.version
+	
+	logo_skull.visible = false
 	
 	main.visible = false
 	game.visible = false
