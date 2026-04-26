@@ -25,7 +25,8 @@ static func _typeware(label, duration: float) -> void:
 	tween.kill()
 
 
-static func _typeware_hide(label, duration: float) -> void:
+static func _typeware_hide(label: Label, duration: float) -> void:
+	label.modulate.a = 1
 	label.visible_ratio = 0.0
 	var tween = label.create_tween()
 	
@@ -47,7 +48,9 @@ static func _typeware_hide(label, duration: float) -> void:
 	tween.kill()
 	tween = label.create_tween()
 	tween.tween_property(label,"modulate:a",0,duration/2)
-	
+
+
+
 static func sound_stop(audio, duration):
 	await  GTime.delay(duration/2 + 0.1)
 	audio.stop()

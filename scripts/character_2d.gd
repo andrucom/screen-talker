@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
+
 @onready var audio = $AudioStreamPlayer3D
 @onready var particles = $CPUParticles2D
 @onready var particles_dead = $DEAD
 @onready var particles_win = get_node("../WIN")
 @onready var labelLVL = get_node("../LabelLVL")
 @onready var labelALL = get_node("../LabelALL")
+@onready var LabelPAT: Label = get_node("../LabelPAT")
 var sound = preload("res://sounds/next_lvl.mp3")
 var sound_dead = preload("res://sounds/dead.mp3")
 
@@ -93,12 +95,12 @@ func check_tilemap():
 		
 		
 func next_lvl():
-	
 	self.position = original_position
 	moving = false
 	for i in ["left","right","up","down"]:
 		Input.action_release(i)
 	if  G.lvl < lvl_counter():	
+		pat_player()
 		print("PING" + str(G.lvl))
 		G.lvl += 1
 		
@@ -133,6 +135,10 @@ func lvl_counter():
 			break
 	return count
 	
-	
-
+func pat_player():
+	if LabelPAT != null:
+		if G.lvl % 3 == 0:
+			LabelPAT.text = ["GOOD", "NICE"].pick_random()
+			LabelPAT.visible = true
+			TextAnimator._typeware_hide(LabelPAT,1.3)
 	
