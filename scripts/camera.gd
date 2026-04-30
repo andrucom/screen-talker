@@ -62,7 +62,16 @@ func _input(event: InputEvent) -> void:
 					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 				else:
 					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	
+		if event.is_action("focus"):
+			var tween = create_tween()
+			var duration = 0.3
+			tween.set_parallel(true)
+			tween.tween_property(camera, "input_rotation_x",-0.091, duration)
+			tween.tween_property(camera, "input_rotation_y",0.007, duration)
+			
+			await  GTime.delay(duration+0.1)
+			tween.kill()
+			
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			for i in range(50):
@@ -73,22 +82,31 @@ func _input(event: InputEvent) -> void:
 				await GTime.delay(0.001)
 				camera.fov = clamp(camera.fov+0.05, fov_min, fov_original)
 				
-		if event.button_index == MOUSE_BUTTON_RIGHT:
-			var tween = create_tween()
-			var duration = 0.3
-			tween.set_parallel(true)
-			tween.tween_property(camera, "input_rotation_x",-0.091, duration)
-			tween.tween_property(camera, "input_rotation_y",0.007, duration)
-			
-			await  GTime.delay(duration+0.1)
-			tween.kill()
-			
+
 			
 			#input_rotation_x = -0.091
 			#input_rotation_y = 0.007
 	
 	if event.is_action_pressed("use"):
 		rayfire()
+
+	if event is InputEventJoypadMotion:
+		
+		if event.axis == JOY_AXIS_RIGHT_X:
+			var stick_x = event.axis_value
+			var target_y = input_rotation_y + (stick_x * mouse_sensitivity * 100)
+			var dead_zone = 0.1
+			if abs(stick_x) < dead_zone: stick_x = 0.0
+			target_y = clamp(-target_y, -0.5, 0.5)
+			input_rotation_y = lerp(input_rotation_y, target_y, 0.5)
+
+		elif event.axis == JOY_AXIS_RIGHT_Y:
+			var stick_y = event.axis_value
+			var target_x = input_rotation_x + (stick_y * mouse_sensitivity * 100)
+			var dead_zone = 0.1
+			if abs(stick_y) < dead_zone: stick_y = 0.0
+			target_x = clamp(-target_x, -0.5, 0.5)
+			input_rotation_x = lerp(input_rotation_x, target_x, 0.5)
 
 	if event is InputEventMouseMotion:
 		var mouse_delta = event.screen_relative
