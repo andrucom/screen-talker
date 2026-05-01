@@ -25,7 +25,7 @@ static func _typeware(label, duration: float) -> void:
 	tween.kill()
 
 
-static func _typeware_hide(label: Label, duration: float) -> void:
+static func _typeware_hide(label: Label, duration: float, volume = null) -> void:
 	label.modulate.a = 1
 	label.visible_ratio = 0.0
 	var tween = label.create_tween()
@@ -33,7 +33,10 @@ static func _typeware_hide(label: Label, duration: float) -> void:
 	var _audio = AudioStreamPlayer3D.new()
 	label.add_child(_audio)
 	_audio.pitch_scale = 2
-	_audio.volume_db = -20
+	if volume == null:
+		_audio.volume_db = -10
+	else:
+		_audio.volume_db = volume
 	_audio.stream = sound 
 
 	_audio.play()
