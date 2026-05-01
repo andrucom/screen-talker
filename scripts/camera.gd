@@ -81,7 +81,16 @@ func _input(event: InputEvent) -> void:
 			for i in range(50):
 				await GTime.delay(0.001)
 				camera.fov = clamp(camera.fov+0.05, fov_min, fov_original)
-				
+
+	if event is InputEventJoypadMotion:
+		if event.axis == JOY_AXIS_TRIGGER_RIGHT:
+			for i in range(50):
+				await GTime.delay(0.001)
+				camera.fov = clamp(camera.fov-0.05, fov_min, fov_original)
+		if event.axis == JOY_AXIS_TRIGGER_LEFT:
+			for i in range(50):
+				await GTime.delay(0.001)
+				camera.fov = clamp(camera.fov+0.05, fov_min, fov_original)				
 
 			
 			#input_rotation_x = -0.091

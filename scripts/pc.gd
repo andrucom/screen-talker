@@ -54,7 +54,7 @@ func _input(event: InputEvent) -> void:
 		elif event.is_action_pressed("choice_2"):
 			G.choice = "2"
 	
-	if event is InputEventKey and not InputEventJoypadButton and event.is_pressed():
+	if event is InputEventKey and event.is_pressed():
 		G.choice = OS.get_keycode_string(event.keycode).to_lower()
 	
 # функция вкл/выкл - пока не нужно

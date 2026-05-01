@@ -140,5 +140,5 @@ func pat_player():
 		if G.lvl % 3 == 0:
 			LabelPAT.text = ["GOOD", "NICE"].pick_random()
 			LabelPAT.visible = true
-			TextAnimator._typeware_hide(LabelPAT,1.3)
+			TextAnimator._typeware_hide(LabelPAT,1.3,-30)
 	
