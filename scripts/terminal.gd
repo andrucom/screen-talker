@@ -65,7 +65,7 @@ func game_toggle():
 	G.end_dialoge = false
 
 func end_game():
-	await  GTime.delay(1)
+	await GTime.delay(1)
 	if G.end_game == true and G.end_dialoge == false:
 		G.end_dialoge = true
 		G.game = false
