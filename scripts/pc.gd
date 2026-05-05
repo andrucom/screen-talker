@@ -55,11 +55,8 @@ func _input(event: InputEvent) -> void:
 			G.choice = "2"
 	
 	if event is InputEventKey and event.is_pressed():
-		G.choice = OS.get_keycode_string(event.keycode).to_lower()
-		if OS.get_keycode_string(event.keycode).to_lower() == "kp 1":
-			G.choice = "1"
-		elif OS.get_keycode_string(event.keycode).to_lower() == "kp 2":
-			G.choice = "2"
+		G.choice = OS.get_keycode_string(event.keycode).to_lower()[-1]
+	
 	
 # функция вкл/выкл - пока не нужно
 #func interact(name):
