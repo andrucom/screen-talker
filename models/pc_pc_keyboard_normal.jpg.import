@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ufw62hi50clf"
-path.s3tc="res://.godot/imported/pc_08_-_Default_baseColor.jpg-e6faa730612dc5ca3642d95bc25e1cb9.s3tc.ctex"
+uid="uid://clpo0uyxjvlky"
+path.s3tc="res://.godot/imported/pc_pc_keyboard_normal.jpg-7bec49ee5c7ec99515d3698c1b3a40f4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4dcd56bffa5fad00d080a5b41ebe9067"
+"md5": "f7e01349e5c9a94057437c39e19c3f6b"
 }
 
 [deps]
 
-source_file="res://models/pc_08_-_Default_baseColor.jpg"
-dest_files=["res://.godot/imported/pc_08_-_Default_baseColor.jpg-e6faa730612dc5ca3642d95bc25e1cb9.s3tc.ctex"]
+source_file="res://models/pc_pc_keyboard_normal.jpg"
+dest_files=["res://.godot/imported/pc_pc_keyboard_normal.jpg-7bec49ee5c7ec99515d3698c1b3a40f4.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://models/pc_pc_keyboard_normal.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
