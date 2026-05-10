@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxs7fnnbwbetl"
-path.s3tc="res://.godot/imported/pc_09_-_Default_metallicRoughness.jpg-2082708fb5e5d77f83c5745aa61174f0.s3tc.ctex"
+uid="uid://bn7kxvn1d628n"
+path.s3tc="res://.godot/imported/pc_pc_main_normal.jpg-303f2e0806220b6782d4c0823cab4fd6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "fe55b12a50a27345946d6e1ac9479fe5"
+"md5": "0f6fc409fec8db147ef7dc045dd23cfb"
 }
 
 [deps]
 
-source_file="res://models/pc_09_-_Default_metallicRoughness.jpg"
-dest_files=["res://.godot/imported/pc_09_-_Default_metallicRoughness.jpg-2082708fb5e5d77f83c5745aa61174f0.s3tc.ctex"]
+source_file="res://models/pc_pc_main_normal.jpg"
+dest_files=["res://.godot/imported/pc_pc_main_normal.jpg-303f2e0806220b6782d4c0823cab4fd6.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://models/pc_pc_main_normal.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

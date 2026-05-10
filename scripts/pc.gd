@@ -38,12 +38,14 @@ func _input(event: InputEvent) -> void:
 	# Push button
 	if event is InputEventKey and event.is_pressed() and not pressed_handled.get(event.keycode,false):
 		print("key: ", OS.get_keycode_string(event.keycode).to_lower())
-		push_button(OS.get_keycode_string(event.keycode).to_lower())
+		#push_button(OS.get_keycode_string(event.keycode).to_lower())
+		push_button(get_key_node_name(event))
 		pressed_handled[event.keycode] = true
 	
 	# Unpush button
 	if event is InputEventKey and event.is_released() and pressed_handled.get(event.keycode,true):
-		unpush_button(OS.get_keycode_string(event.keycode).to_lower())
+		#unpush_button(OS.get_keycode_string(event.keycode).to_lower())
+		unpush_button(get_key_node_name(event))
 		pressed_handled[event.keycode] = false
 		input_connect.emit()
 	
@@ -55,7 +57,8 @@ func _input(event: InputEvent) -> void:
 			G.choice = "2"
 	
 	if event is InputEventKey and event.is_pressed():
-		G.choice = OS.get_keycode_string(event.keycode).to_lower()
+		G.choice = OS.get_keycode_string(event.keycode).to_lower()[-1]
+	
 	
 # функция вкл/выкл - пока не нужно
 #func interact(name):
@@ -112,3 +115,13 @@ func unpush_button(node: String):
 		body.position += Vector3(0,push_power,0)
 		
 # Нажатие и отжатие кнопок на клавиатуре. !На 3д модели должны совпадать keycode с названием мешей
+func get_key_node_name(event: InputEventKey) -> String:
+	var base = OS.get_keycode_string(event.keycode).to_lower()
+	
+	if event.keycode in [KEY_SHIFT, KEY_CTRL, KEY_ALT]:
+		if event.location == KEY_LOCATION_LEFT:
+			return base + "_l"
+		elif event.location == KEY_LOCATION_RIGHT:
+			return base + "_r"
+	
+	return base

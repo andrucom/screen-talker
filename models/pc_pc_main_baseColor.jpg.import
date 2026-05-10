@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj5ftw1sd4jde"
-path.s3tc="res://.godot/imported/pc_09_-_Default_baseColor.jpg-6f16c721887e5adee236c40fcc14ba09.s3tc.ctex"
+uid="uid://c2orsbmh7gbyj"
+path.s3tc="res://.godot/imported/pc_pc_main_baseColor.jpg-7af8f668dd73f88699e7e28f12be5333.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://models/pc_09_-_Default_baseColor.jpg"
-dest_files=["res://.godot/imported/pc_09_-_Default_baseColor.jpg-6f16c721887e5adee236c40fcc14ba09.s3tc.ctex"]
+source_file="res://models/pc_pc_main_baseColor.jpg"
+dest_files=["res://.godot/imported/pc_pc_main_baseColor.jpg-7af8f668dd73f88699e7e28f12be5333.s3tc.ctex"]
 
 [params]
 
