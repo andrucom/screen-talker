@@ -45,7 +45,8 @@ func exit_dead():
 	G.end_exit = true
 	
 	logo_skull.visible = true
-	
+	var tween = create_tween()
+	tween.tween_property(G, "pc_ligh", Color.RED, 1)
 	#get_tree().quit()
 
 func game_toggle():
